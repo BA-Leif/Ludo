@@ -29,7 +29,7 @@ namespace Ludo._60_ViewModel
         //        "": ein leeres Feld
         //      Px_n: Figur n von Spieler x steht auf dem Feld.
 
-        public string[] BoardView { get; set; }
+        public List<int[]> BoardView { get; set; }
 
         //Farben
         public string Color_Background { get; set; }
@@ -48,7 +48,11 @@ namespace Ludo._60_ViewModel
         //Konstruktor
         public VM_MainWindow()
         {
-            
+            for (int i = 0; i < 100; i++)
+            {
+                BoardView.Add(new int[2] { 9, 9 });
+            }
+
             //Colors
             Color_Background = "gray";
             Color_P1 = "red";
@@ -74,9 +78,23 @@ namespace Ludo._60_ViewModel
 
         public void Change_BoardView(int[][] pawnPosition)
         {
+            for (int i = 0; i < 100; i++)
+            {
+                if (BoardView[i].Max() < 9)
+                {
+                    BoardView[i] = new int[2] { 9, 9 };
+                }
+            }
             for (int i = 0; i < 4; i++)
             {
-
+                for (int k = 0; k < 4; k++)
+                {
+                    int Position_PlayersView = pawnPosition[i][k];
+                    if (Position_PlayersView >=0   &&   Position_PlayersView<=51)
+                    {
+                        BoardView[(Position_PlayersView+13*i)%52] = new  int[2] { i, k };
+                    }
+                }
             }
         }
         #endregion
