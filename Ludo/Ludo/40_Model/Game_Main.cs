@@ -13,9 +13,9 @@ namespace Ludo._40_Model
         public GameState GameState { get; set; }
 
 
-        public Game_Main(int player)
+        public Game_Main()
         {
-            this.GameState = new GameState(player);
+            this.GameState = new GameState();
         }
         #endregion
 

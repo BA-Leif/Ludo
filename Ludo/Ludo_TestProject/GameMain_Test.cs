@@ -11,14 +11,15 @@ namespace Ludo_TestProject
         public void PlayerChange_normal()
         {
             //Arrange
-            Game_Main Game1 = new Game_Main(1);
+            Game_Main Game = new Game_Main();
+            Game.GameState.ActivePlayer = 1;
             int expected = 2;
 
             //Act
-            Game1.ChangePlayer();
+            Game.ChangePlayer();
 
             //Assert
-            int actual = Game1.GameState.ActivePlayer;
+            int actual = Game.GameState.ActivePlayer;
             Assert.AreEqual(expected, actual, "Failed. actual:" + actual.ToString());
         }
 
@@ -26,14 +27,15 @@ namespace Ludo_TestProject
         public void PlayerChange_backToStart()
         {
             //Arrange
-            Game_Main Game1 = new Game_Main(3);
+            Game_Main Game = new Game_Main();
+            Game.GameState.ActivePlayer = 3;
             int expected = 0;
 
             //Act
-            Game1.ChangePlayer();
+            Game.ChangePlayer();
 
             //Assert
-            int actual = Game1.GameState.ActivePlayer;
+            int actual = Game.GameState.ActivePlayer;
             Assert.AreEqual(expected, actual, "Failed. actual:" + actual.ToString());         
         }
     }

@@ -16,6 +16,25 @@ namespace Ludo._20_Data
         public bool GameOver { get; set; }
         public int Winner { get; set; }
 
+        // Die Eigenschaft enthält für jeden Pöppel die Information, wie weit er von seinem EIGENEN Start aus bereits gelaufen ist.
+        // Hierbei steht der Wert -1 für "im Haus stehend".
+        // Die erste Dimension gibt den Besitzer des Pöppel an, die zweite Dimension die individuelle ID (0-3)
+        public int[,] PawnPosition { get; set; }
+
+
+        #endregion
+
+        #region Konstruktor
+        public GameState()
+        {
+            ActivePlayer = 1;
+            PawnPosition = new int[4,4] { { -1,-1,-1,-1 }, { -1, -1, -1, -1 }, { -1, -1, -1, -1 }, { -1, -1, -1, -1 } };
+        }
+
+
+        #endregion
+
+        #region Verworfenes
         // Enthält Informationen über das aktuelle Spielgeschehen
         // Jedes Feld auf dem Brett hat hierbei einen festen Platz im Array.
         //      Index          Feld
@@ -31,16 +50,6 @@ namespace Ludo._20_Data
         //      Px_n: Figur n von Spieler x steht auf dem Feld.
 
         public string[] Board { get; set; }
-
-   
-        #endregion
-
-        #region Konstruktor
-        public GameState(int player)
-        {
-            ActivePlayer = player;
-        }
-
         #endregion
     }
 }
