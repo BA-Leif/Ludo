@@ -1,7 +1,6 @@
 C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\Ludo.exe.config
 C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\Ludo.exe
 C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\Ludo.pdb
-C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csprojAssemblyReference.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\80_View\MainWindow.g.cs
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\App.g.cs
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo_MarkupCompile.cache
@@ -13,3 +12,5 @@ C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.GenerateResource.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.CoreCompileInputs.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.exe
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.pdb
+C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csprojAssemblyReference.cache
+C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\GeneratedInternalTypeHelper.g.cs
