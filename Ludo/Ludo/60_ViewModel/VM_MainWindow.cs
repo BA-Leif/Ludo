@@ -14,6 +14,23 @@ namespace Ludo._60_ViewModel
     {
         #region Eigenschaften & Konstruktor
         public MainWindow View { get; set; }
+
+        // Enthält Informationen über das aktuelle Spielgeschehen
+        // Jedes Feld auf dem Brett hat hierbei einen festen Platz im Array.
+        //      Index          Feld
+        //      0 - 51         StandardFelder des Rundkurses, wobei mit der Uhr durchgezählt wird.
+        //                          Board[0] ist gleich dem Startfeld des ersten Spielers unten links.
+        //                          Board[51] ist gleich dem Endfeld des ersten Spielers.
+        //      
+        //  10x+60 - 10x+63    Häuser der Spieler, wobei x der Speilerzahl (0-3) entspricht.
+        //  10x+65 - 10x+68    Zielfelder der Spieler, wobei x der Speilerzahl (0-3) entspricht.
+        //
+        //  Die Einträge können sein
+        //        "": ein leeres Feld
+        //      Px_n: Figur n von Spieler x steht auf dem Feld.
+
+        public string[] BoardView { get; set; }
+
         //Farben
         public string Color_Background { get; set; }
         public string Color_P1 { get; set; }
@@ -45,7 +62,7 @@ namespace Ludo._60_ViewModel
         }
         #endregion
        
-        #region Binding- und Commandkram
+        #region View & VM Beziehungen
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnNotifyPropertyChanged(string propertyName)
         {
@@ -54,15 +71,23 @@ namespace Ludo._60_ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public void Change_BoardView(int[][] pawnPosition)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+
+            }
+        }
         #endregion
 
         #region Commands
-            public void RollDie(object obj)
+        public void RollDie(object obj)
         {
-            Random rnd = new Random();
-            Text_Die = rnd.Next(1, 7).ToString();
-            OnNotifyPropertyChanged("Text_Die");
+
         }
+
+
         #endregion
 
         #region Testbereich

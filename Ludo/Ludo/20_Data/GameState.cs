@@ -19,7 +19,7 @@ namespace Ludo._20_Data
         // Die Eigenschaft enthält für jeden Pöppel die Information, wie weit er von seinem EIGENEN Start aus bereits gelaufen ist.
         // Hierbei steht der Wert -1 für "im Haus stehend".
         // Die erste Dimension gibt den Besitzer des Pöppel an, die zweite Dimension die individuelle ID (0-3)
-        public int[,] PawnPosition { get; set; }
+        public int[][] PawnPosition { get; set; }
 
 
         #endregion
@@ -28,28 +28,23 @@ namespace Ludo._20_Data
         public GameState()
         {
             ActivePlayer = 1;
-            PawnPosition = new int[4,4] { { -1,-1,-1,-1 }, { -1, -1, -1, -1 }, { -1, -1, -1, -1 }, { -1, -1, -1, -1 } };
+            PawnPosition = new int[4][];
+            PawnPosition[0] = new int[4] { -1, -1, -1, -1 };
+            PawnPosition[1] = new int[4] { -1, -1, -1, -1 };
+            PawnPosition[2] = new int[4] { -1, -1, -1, -1 };
+            PawnPosition[3] = new int[4] { -1, -1, -1, -1 };
+            DieValue = 1;
+            AI = new bool[4] { false, true, true, true};
+            PlayerNames = new string[4] { "Tom", "tOm", "toM", "TOM" };
+            GameOver = false;
+            Winner= 100;
         }
 
 
         #endregion
 
         #region Verworfenes
-        // Enthält Informationen über das aktuelle Spielgeschehen
-        // Jedes Feld auf dem Brett hat hierbei einen festen Platz im Array.
-        //      Index          Feld
-        //      0 - 51         StandardFelder des Rundkurses, wobei mit der Uhr durchgezählt wird.
-        //                          Board[0] ist gleich dem Startfeld des ersten Spielers unten links.
-        //                          Board[51] ist gleich dem Endfeld des ersten Spielers.
-        //      
-        //  10x+60 - 10x+63    Häuser der Spieler, wobei x der Speilerzahl (0-3) entspricht.
-        //  10x+65 - 10x+68    Zielfelder der Spieler, wobei x der Speilerzahl (0-3) entspricht.
-        //
-        //  Die Einträge können sein
-        //        "": ein leeres Feld
-        //      Px_n: Figur n von Spieler x steht auf dem Feld.
-
-        public string[] Board { get; set; }
+        
         #endregion
     }
 }
