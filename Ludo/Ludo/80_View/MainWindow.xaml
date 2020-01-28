@@ -1,20 +1,29 @@
-﻿<Window x:Class="Ludo.MainWindow"
+﻿<Window x:Class="Ludo._80_View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Ludo"
+        xmlns:local="clr-namespace:Ludo._80_View"
+        xmlns:vm="clr-namespace:Ludo._60_ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800">
+        Title="MainWindow" Height="700" Width="700"
+        Background="{Binding Color_Background}">
+    <Window.DataContext>
+        <vm:VM_MainWindow/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
-            
+
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
@@ -25,8 +34,14 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
+
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
@@ -37,22 +52,44 @@
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
-            
+
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
+
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <!--Board_Startareas-->
-        <Button x:Name="P1_Start_1" Grid.Row="13" Grid.Column="2"/>
-        <Button x:Name="P1_Start_2" Grid.Row="13" Grid.Column="3"/>
-        <Button x:Name="P1_Start_3" Grid.Row="12" Grid.Column="2"/>
-        <Button x:Name="P1_Start_4" Grid.Row="12" Grid.Column="3"/>
+        <Button x:Name="P1_Start_1" Grid.Row="14" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Start_2" Grid.Row="14" Grid.Column="5" Margin="5px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Start_3" Grid.Row="15" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Start_4" Grid.Row="15" Grid.Column="5" Margin="5px" Background="{Binding Color_P1}"/>
+
+        <!--Board_Goal-->
+        <Button x:Name="P1_Goal_1" Grid.Row="15" Grid.Column="9" Margin="15px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Goal_2" Grid.Row="14" Grid.Column="9" Margin="15px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Goal_3" Grid.Row="13" Grid.Column="9" Margin="15px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Goal_4" Grid.Row="12" Grid.Column="9" Margin="15px" Background="{Binding Color_P1}"/>
         
+        <!--Board_Die-->
+        <Button x:Name="Die" Grid.Row="8" Grid.Column="8" Grid.RowSpan="3" Grid.ColumnSpan="3" 
+                Margin="10px" FontSize="60"
+                Content="{Binding Text_Die}" Command="{Binding Cmd_RollDie}" />
+
+
         <!--Board_Main-->
-        <Button x:Name="F01" Grid.Row="13" Grid.Column="6" />
+        <Button x:Name="F00" Grid.Row="16" Grid.Column="8" Command="{Binding Cmd_TestClick}"/>
+        <Button x:Name="F01" Grid.Row="15" Grid.Column="8"/>
+        <Button x:Name="F02" Grid.Row="14" Grid.Column="8"/>
+        <Button x:Name="F03" Grid.Row="13" Grid.Column="8"/>
+        <Button x:Name="F04" Grid.Row="12" Grid.Column="8"/>
+        <Button x:Name="F05" Grid.Row="12" Grid.Column="7"/>
+        <Button x:Name="F06" Grid.Row="12" Grid.Column="6"/>
+        <Button x:Name="F07" Grid.Row="11" Grid.Column="6"/>
     </Grid>
 </Window>
