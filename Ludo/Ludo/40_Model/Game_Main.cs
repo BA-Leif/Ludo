@@ -23,6 +23,11 @@ namespace Ludo._40_Model
 
         #region Spielmechaniken
 
+        public void MovePhase()
+        {
+
+        }
+
         public void movePawn(int pawnID, int targetSpot)
         {
             GameState.PawnPosition[GameState.ActivePlayer][pawnID] = targetSpot;

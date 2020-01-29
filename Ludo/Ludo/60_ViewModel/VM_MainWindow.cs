@@ -32,6 +32,7 @@ namespace Ludo._60_ViewModel
 
         //Farben
         public string Color_Background { get; set; }
+        public string Color_EmptyField { get; set; }
         public string Color_P1 { get; set; }
         public string Color_P2 { get; set; }
         public string Color_P3 { get; set; }
@@ -44,18 +45,35 @@ namespace Ludo._60_ViewModel
         public ICommand Cmd_TestClick { get; set; }
         public ICommand Cmd_RollDie { get; set; }
 
+        //FieldButtons
+        public bool[] Field_Enable { get; set; }
+        public string[] Field_PawnColor { get; set; }
+        public bool[] Field_Pawn { get; set; }
+
         //Konstruktor
         public VM_MainWindow()
         {
             BoardView = new List<int[]>();
+            Field_Enable = new bool[100];
+            Field_PawnColor = new string[100];
+            Field_Pawn = new bool[100];
+
             for (int i = 0; i < 100; i++)
             {
                 BoardView.Add(new int[2] { 9, 9 });
-            }
+                Field_Enable[i] = true;
+                Field_PawnColor[i] = "lightgray";
+                Field_Pawn[i] = false;
+            }            
 
             //Colors
             Color_Background = "gray";
+            Color_EmptyField = "black";
             Color_P1 = "red";
+            Color_P2 = "blue";
+            Color_P3 = "yellow";
+            Color_P4 = "green";
+
 
             //Text
             Text_Die = "X";
@@ -119,18 +137,72 @@ namespace Ludo._60_ViewModel
 
         #endregion
 
+        #region Hilfsfunktionen
+        public string ChooseColor(int player)
+        {
+            string color = "";
+            switch (player)
+            {
+                case 0:
+                    color = Color_P1;
+                    break;
+
+                case 1:
+                    color = Color_P2;
+                    break;
+
+                case 2:
+                    color = Color_P3;
+                    break;
+
+                case 3:
+                    color = Color_P4;
+                    break;
+                default:
+                    color = "black";
+                    break;
+            }
+
+            return color;
+        }
+        #endregion
+
         #region Testbereich
         public void TestClick(object obj)
         {
-            if (Color_Background != "lightgray")
+            List<int[]> Pre_BoardView = new List<int[]>();
+            for (int i = 0; i < 100; i++)
             {
-                Color_Background = "lightgray";
+                Pre_BoardView.Add(new int[2] { 9, 9 });
             }
-            else if (Color_Background == "lightgray")
+            Pre_BoardView[60] = new int[2] { 0, 0 };
+            Pre_BoardView[4] = new int[2] { 0, 1 };
+            Pre_BoardView[2] = new int[2] { 0, 2 };
+            Pre_BoardView[63] = new int[2] { 0, 3 };
+
+            BoardView = Pre_BoardView;
+
+            for (int i = 0; i < BoardView.Count; i++)
             {
-                Color_Background = "gray";
+                if (BoardView[i].Max() != 9)
+                {
+                    Field_Enable[i] = true;
+                    Field_PawnColor[i] = ChooseColor(0);
+                    Field_Pawn[i] = true;
+                }
+                else
+                {
+                    Field_Enable[i] = false;
+                    Field_PawnColor[i] = Color_EmptyField;
+                    Field_Pawn[i] = false;
+                }
+                Field_Enable[60] = false;
+                Field_Pawn[60] = true;
+                OnNotifyPropertyChanged("Field_PawnColor");
+                OnNotifyPropertyChanged("Field_Enable");
+                OnNotifyPropertyChanged("Field_Pawn");
             }
-            OnNotifyPropertyChanged("Color_Background");
+
         }
 
 

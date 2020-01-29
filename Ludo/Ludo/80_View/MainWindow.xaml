@@ -64,8 +64,16 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
+        <!--Test-->
+        <Button x:Name="Test" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Content="Test"
+                Command="{Binding Cmd_TestClick}" CommandParameter="4"
+                />
+
         <!--Board_Startareas-->
-        <Button x:Name="P1_Start_1" Grid.Row="14" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}"/>
+        <Button x:Name="P1_Start_1" Grid.Row="14" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}" IsEnabled="{Binding Field_Enable[60]}">
+            <Button.Content>
+                <Ellipse MinWidth="15" MinHeight="15" Fill="{Binding Field_PawnColor[60]}" />
+            </Button.Content></Button>
         <Button x:Name="P1_Start_2" Grid.Row="14" Grid.Column="5" Margin="5px" Background="{Binding Color_P1}"/>
         <Button x:Name="P1_Start_3" Grid.Row="15" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}"/>
         <Button x:Name="P1_Start_4" Grid.Row="15" Grid.Column="5" Margin="5px" Background="{Binding Color_P1}"/>
@@ -83,13 +91,17 @@
 
 
         <!--Board_Main-->
-        <Button x:Name="F00" Grid.Row="16" Grid.Column="8" Command="{Binding Cmd_TestClick}"/>
-        <Button x:Name="F01" Grid.Row="15" Grid.Column="8"/>
-        <Button x:Name="F02" Grid.Row="14" Grid.Column="8"/>
-        <Button x:Name="F03" Grid.Row="13" Grid.Column="8"/>
-        <Button x:Name="F04" Grid.Row="12" Grid.Column="8"/>
-        <Button x:Name="F05" Grid.Row="12" Grid.Column="7"/>
-        <Button x:Name="F06" Grid.Row="12" Grid.Column="6"/>
-        <Button x:Name="F07" Grid.Row="11" Grid.Column="6"/>
+        <Button x:Name="F00" Grid.Row="16" Grid.Column="8" IsEnabled="{Binding Field_Enable[0]}">
+            <Button.Content>
+                <Ellipse MinHeight="30" MinWidth="30" Fill="{Binding Field_PawnColor[0]}" Visibility="{Binding Field_Pawn[0]}"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="F01" Grid.Row="15" Grid.Column="8" IsEnabled="{Binding Field_Enable[1]}" Background="{Binding Field_PawnColor[1]}"/>
+        <Button x:Name="F02" Grid.Row="14" Grid.Column="8" IsEnabled="{Binding Field_Enable[2]}" Background="{Binding Field_PawnColor[2]}"/>
+        <Button x:Name="F03" Grid.Row="13" Grid.Column="8" IsEnabled="{Binding Field_Enable[3]}" Background="{Binding Field_PawnColor[3]}"/>
+        <Button x:Name="F04" Grid.Row="12" Grid.Column="8" IsEnabled="{Binding Field_Enable[4]}" Background="{Binding Field_PawnColor[4]}"/>
+        <Button x:Name="F05" Grid.Row="12" Grid.Column="7" IsEnabled="{Binding Field_Enable[5]}" Background="{Binding Field_PawnColor[5]}"/>
+        <Button x:Name="F06" Grid.Row="12" Grid.Column="6" IsEnabled="{Binding Field_Enable[6]}" Background="{Binding Field_PawnColor[6]}"/>
+        <Button x:Name="F07" Grid.Row="11" Grid.Column="6" IsEnabled="{Binding Field_Enable[7]}" Background="{Binding Field_PawnColor[7]}" />
     </Grid>
 </Window>
