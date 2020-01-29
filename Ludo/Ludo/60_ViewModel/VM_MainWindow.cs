@@ -10,7 +10,7 @@ using Ludo._80_View;
 
 namespace Ludo._60_ViewModel
 {
-    class VM_MainWindow : INotifyPropertyChanged
+    public class VM_MainWindow : INotifyPropertyChanged
     {
         #region Eigenschaften & Konstruktor
         public MainWindow View { get; set; }
@@ -28,7 +28,6 @@ namespace Ludo._60_ViewModel
         //  Die Einträge können sein
         //        "": ein leeres Feld
         //      Px_n: Figur n von Spieler x steht auf dem Feld.
-
         public List<int[]> BoardView { get; set; }
 
         //Farben
@@ -48,6 +47,7 @@ namespace Ludo._60_ViewModel
         //Konstruktor
         public VM_MainWindow()
         {
+            BoardView = new List<int[]>();
             for (int i = 0; i < 100; i++)
             {
                 BoardView.Add(new int[2] { 9, 9 });
@@ -90,9 +90,20 @@ namespace Ludo._60_ViewModel
                 for (int k = 0; k < 4; k++)
                 {
                     int Position_PlayersView = pawnPosition[i][k];
+                    //Pöppel steht auf einem normalen Feld
                     if (Position_PlayersView >=0   &&   Position_PlayersView<=51)
                     {
-                        BoardView[(Position_PlayersView+13*i)%52] = new  int[2] { i, k };
+                        BoardView[(Position_PlayersView+(13*i))%52] = new  int[2] { i, k };
+                    }
+                    //Pöppel steht auf einem Zielfeld
+                    else if (Position_PlayersView >= 52)
+                    {
+                        BoardView[Position_PlayersView-52+60+5+(10*i)] = new int[2] { i, k };
+                    }
+                    //Pöppel hat das Haus noch nicht verlassen
+                    else if (Position_PlayersView == -1)
+                    {
+                        BoardView[60+(10*i)+k] = new int[2] { i, k };
                     }
                 }
             }
