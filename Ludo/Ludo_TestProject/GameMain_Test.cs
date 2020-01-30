@@ -81,7 +81,7 @@ namespace Ludo_TestProject
             //Arrange:
             VM_MainWindow vm = new VM_MainWindow();
             Game_Main game = new Game_Main(vm);
-            game.GameState.PawnPosition[2] = new int[4] { 53, 52, 55, 54 };
+            game.GameState.PawnPosition[2] = new int[4] { 48,51,50,49 };
             bool expected_GameOver = true;
             int expected_Winner = 2;
 
@@ -101,7 +101,7 @@ namespace Ludo_TestProject
             //Arrange:
             VM_MainWindow vm = new VM_MainWindow();
             Game_Main game = new Game_Main(vm);
-            game.GameState.PawnPosition[2] = new int[4] { 53, 52, 51, 54 };
+            game.GameState.PawnPosition[2] = new int[4] { 49, 48, 47, 50 };
             bool expected_GameOver = false;
             int expected_Winner = 100;
 

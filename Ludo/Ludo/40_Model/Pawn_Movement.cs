@@ -28,7 +28,7 @@ namespace Ludo._40_Model
         public int[] CheckWhichPawnCanMove()
         {
             //Initialize the output variable with invalid moves for each pawn.
-            int[] move = new int[4] { 100, 100, 100, 100};
+            int[] move = new int[4] { 90, 90, 90, 90};
 
             //Freiräumen des Startfeldes erzwingen
             for (int i = 0; i < 4; i++)
@@ -40,7 +40,7 @@ namespace Ludo._40_Model
             }
             // existiert nun ein Wert kleiner 100, steht ein Pöppel auf dem Startfeld und 
             //      alle anderen Pöppel dürfen nicht ziehen. Ihre Wertte bleiben damit auf 100.
-            if ((move.Min() == 100))
+            if ((move.Min() == 90))
             {
                 for (int i = 0; i < 4; i++)
                 {
@@ -57,19 +57,19 @@ namespace Ludo._40_Model
                         }
                         else
                         {
-                            move[i] = 100;
+                            move[i] = 90;
                         }
                     }
                     //liegt das Zeilfeld zwischen 0 und 51, so ist der Zug erlaubt.
                     //  (theoretische würden Figuren geschlagen die dort stehen [nicht hier implementiert])
-                    else if (move[i] <= 51)
+                    else if (move[i] <= 47)
                     {
                         
                     }
                     //liegt das Ziel über 55, so würde der Pöppel übers Ziel hinausschießen. -> ungültiger Zug
-                    else if (move[i] > 55)
+                    else if (move[i] > 51)
                     {
-                        move[i] = 100;
+                        move[i] = 90;
                     }
                     //das Ziel der Bewegung liegt im Zielbereich. 
                     //      -> Überprüfen, ob ein Pöppel in diesem Bereich übersprungen würde
@@ -80,12 +80,12 @@ namespace Ludo._40_Model
                             //  nur die anderen Pöppel des Spieleres testen
                             if (i!= k && 
                                 // nur Pöppel überprüfen, die im Ziel sind
-                                GS.PawnPosition[GS.ActivePlayer][k] >= 52 &&
+                                GS.PawnPosition[GS.ActivePlayer][k] >= 48 &&
                                 //kein Pöppel darf im Ziel überholt werden, 
                                 //  heisst die neue Position darf nicht über der eines anderen liegen
                                 GS.PawnPosition[GS.ActivePlayer][k] <= move[i])
                             {
-                                move[i] = 100;
+                                move[i] = 90;
                             }
                         }
                     }

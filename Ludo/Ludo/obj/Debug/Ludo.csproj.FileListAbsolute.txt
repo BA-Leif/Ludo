@@ -12,5 +12,5 @@ C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.GenerateResource.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.CoreCompileInputs.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.exe
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.pdb
-C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csprojAssemblyReference.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csprojAssemblyReference.cache

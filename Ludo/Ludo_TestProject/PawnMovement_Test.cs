@@ -25,7 +25,7 @@ namespace Ludo_TestProject
             Game.GameState.PawnPosition[1][3] = 0;
             Game.GameState.DieValue = 6;
 
-            int[] expect = new int[4] { 100, 100, 100, 6 };
+            int[] expect = new int[4] { 90, 90, 90, 6 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();
@@ -53,7 +53,7 @@ namespace Ludo_TestProject
             Game.GameState.PawnPosition[1][3] = 40;
             Game.GameState.DieValue = 4;
 
-            int[] expect = new int[4] { 100, 100, 4, 100 };
+            int[] expect = new int[4] { 90, 90, 4, 90 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();
@@ -81,7 +81,7 @@ namespace Ludo_TestProject
             Game.GameState.PawnPosition[1][3] = 34;
             Game.GameState.DieValue = 1;
 
-            int[] expect = new int[4] { 100, 4, 100, 35 };
+            int[] expect = new int[4] { 90, 4, 90, 35 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();
@@ -132,11 +132,11 @@ namespace Ludo_TestProject
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
-            Game.GameState.PawnPosition[1][2] = 51;
-            Game.GameState.PawnPosition[1][3] = 50;
+            Game.GameState.PawnPosition[1][2] = 47;
+            Game.GameState.PawnPosition[1][3] = 46;
             Game.GameState.DieValue = 4;
 
-            int[] expect = new int[4] { 100, 100, 55, 54 };
+            int[] expect = new int[4] { 90, 90, 51, 50 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();
@@ -160,11 +160,11 @@ namespace Ludo_TestProject
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
-            Game.GameState.PawnPosition[1][2] = 51;
-            Game.GameState.PawnPosition[1][3] = 52;
+            Game.GameState.PawnPosition[1][2] = 47;
+            Game.GameState.PawnPosition[1][3] = 48;
             Game.GameState.DieValue = 3;
 
-            int[] expect = new int[4] { 100, 100, 100, 55 };
+            int[] expect = new int[4] { 90, 90, 90, 51 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();
@@ -187,11 +187,11 @@ namespace Ludo_TestProject
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
-            Game.GameState.PawnPosition[1][2] = 55;
-            Game.GameState.PawnPosition[1][3] = 52;
+            Game.GameState.PawnPosition[1][2] = 48;
+            Game.GameState.PawnPosition[1][3] = 51;
             Game.GameState.DieValue = 2;
 
-            int[] expect = new int[4] { 100, 100, 100, 54 };
+            int[] expect = new int[4] { 90, 90, 50, 90 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();
@@ -218,7 +218,7 @@ namespace Ludo_TestProject
             Game.GameState.PawnPosition[1][3] = 52;
             Game.GameState.DieValue = 5;
 
-            int[] expect = new int[4] { 100, 100, 100, 100 };
+            int[] expect = new int[4] { 90, 90, 90, 90 };
 
             //Act:
             int[] actual = Game.PawnMovement.CheckWhichPawnCanMove();

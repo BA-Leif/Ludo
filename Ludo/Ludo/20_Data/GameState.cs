@@ -42,8 +42,7 @@ namespace Ludo._20_Data
             GameOver = false;
             Winner= 100;
             InDiePhase = true;
-            PawnOptions = new int[4] { 100, 100, 100, 100 };
-
+            PawnOptions = new int[4] { 90,90,90,90 };
         }
 
 

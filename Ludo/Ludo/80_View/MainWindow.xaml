@@ -70,45 +70,128 @@
                 />
 
             <!--Board_Startareas-->
-            <Button x:Name="P1_Start_1" Grid.Row="14" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}" IsEnabled="{Binding Field_Enable[60]}">
-                <Button.Content>
-                    <Ellipse MinWidth="20" MinHeight="20"  Stroke="Black"
-                         Fill="{Binding Field_PawnColor[60]}" Visibility="{Binding Field_Pawn[0]}"/>
-                </Button.Content>
-            </Button>
-            <Button x:Name="P1_Start_2" Grid.Row="14" Grid.Column="5" Margin="5px" Background="{Binding Color_P1}"/>
-            <Button x:Name="P1_Start_3" Grid.Row="15" Grid.Column="6" Margin="5px" Background="{Binding Color_P1}"/>
-            <Button x:Name="P1_Start_4" Grid.Row="15" Grid.Column="5" Margin="5px" Background="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[50]}" Grid.Column="{Binding Field_GridX[50]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[51]}" Grid.Column="{Binding Field_GridX[51]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[52]}" Grid.Column="{Binding Field_GridX[52]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[53]}" Grid.Column="{Binding Field_GridX[53]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
+
+            <Rectangle Grid.Row ="{Binding Field_GridY[60]}" Grid.Column="{Binding Field_GridX[60]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[61]}" Grid.Column="{Binding Field_GridX[61]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[62]}" Grid.Column="{Binding Field_GridX[62]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[63]}" Grid.Column="{Binding Field_GridX[63]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
+
+            <Rectangle Grid.Row ="{Binding Field_GridY[70]}" Grid.Column="{Binding Field_GridX[70]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[71]}" Grid.Column="{Binding Field_GridX[71]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[72]}" Grid.Column="{Binding Field_GridX[72]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[73]}" Grid.Column="{Binding Field_GridX[73]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
+
+            <Rectangle Grid.Row ="{Binding Field_GridY[80]}" Grid.Column="{Binding Field_GridX[80]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[81]}" Grid.Column="{Binding Field_GridX[81]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[82]}" Grid.Column="{Binding Field_GridX[82]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[83]}" Grid.Column="{Binding Field_GridX[83]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
+
 
             <!--Board_Goal-->
-            <Button x:Name="P1_Goal_1" Grid.Row="15" Grid.Column="9" Margin="5px" Background="{Binding Color_P1}"/>
-            <Button x:Name="P1_Goal_2" Grid.Row="14" Grid.Column="9" Margin="5px" Background="{Binding Color_P1}"/>
-            <Button x:Name="P1_Goal_3" Grid.Row="13" Grid.Column="9" Margin="5px" Background="{Binding Color_P1}"/>
-            <Button x:Name="P1_Goal_4" Grid.Row="12" Grid.Column="9" Margin="5px" Background="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[55]}" Grid.Column="{Binding Field_GridX[55]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[56]}" Grid.Column="{Binding Field_GridX[56]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[57]}" Grid.Column="{Binding Field_GridX[57]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[58]}" Grid.Column="{Binding Field_GridX[58]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
+                                                                                                                      
+            <Rectangle Grid.Row ="{Binding Field_GridY[65]}" Grid.Column="{Binding Field_GridX[65]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[66]}" Grid.Column="{Binding Field_GridX[66]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[67]}" Grid.Column="{Binding Field_GridX[67]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[68]}" Grid.Column="{Binding Field_GridX[68]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
+                                                                                                                      
+            <Rectangle Grid.Row ="{Binding Field_GridY[75]}" Grid.Column="{Binding Field_GridX[75]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[76]}" Grid.Column="{Binding Field_GridX[76]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[77]}" Grid.Column="{Binding Field_GridX[77]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[78]}" Grid.Column="{Binding Field_GridX[78]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
+                                                                                                                   
+            <Rectangle Grid.Row ="{Binding Field_GridY[85]}" Grid.Column="{Binding Field_GridX[85]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[86]}" Grid.Column="{Binding Field_GridX[86]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[87]}" Grid.Column="{Binding Field_GridX[87]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[88]}" Grid.Column="{Binding Field_GridX[88]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
 
             <!--Board_Die-->
-            <Button x:Name="Die" Grid.Row="8" Grid.Column="8" Grid.RowSpan="3" Grid.ColumnSpan="3" 
-                Margin="10px" FontSize="60"
-                Content="{Binding Text_Die}" Command="{Binding Cmd_RollDie}" />
+            <Button x:Name="Die" Grid.Row="9" Grid.Column="8" Grid.RowSpan="3" Grid.ColumnSpan="3" 
+                Margin="15px" FontSize="60"
+                Content="{Binding Text_Die}" Command="{Binding Cmd_DiePhase}" />
 
 
             <!--Board_Main-->
-            <Button x:Name="F00" Grid.Row="16" Grid.Column="8" IsEnabled="{Binding Field_Enable[0]}">
-                <Button.Content>
-                    <Ellipse MinHeight="30" MinWidth="30" Stroke="Black"
-                         Fill="{Binding Field_PawnColor[0]}" Visibility="{Binding Field_Pawn[0]}"/>
-                </Button.Content>
-            </Button>
-            <Button x:Name="F01" Grid.Row="15" Grid.Column="8" IsEnabled="{Binding Field_Enable[1]}" Background="{Binding Field_GoToColor[1]}"/>
-            <Button x:Name="F02" Grid.Row="14" Grid.Column="8" IsEnabled="{Binding Field_Enable[2]}" Background="{Binding Field_GoToColor[2]}"/>
-            <Button x:Name="F03" Grid.Row="13" Grid.Column="8" IsEnabled="{Binding Field_Enable[3]}" Background="{Binding Field_GoToColor[3]}"/>
-            <Button x:Name="F04" Grid.Row="12" Grid.Column="8" IsEnabled="{Binding Field_Enable[4]}" Background="{Binding Field_GoToColor[4]}"/>
-            <Button x:Name="F05" Grid.Row="12" Grid.Column="7" IsEnabled="{Binding Field_Enable[5]}" Background="{Binding Field_GoToColor[5]}"/>
-            <Button x:Name="F06" Grid.Row="12" Grid.Column="6" IsEnabled="{Binding Field_Enable[6]}" Background="{Binding Field_GoToColor[6]}"/>
-            <Button x:Name="F07" Grid.Row="11" Grid.Column="6" IsEnabled="{Binding Field_Enable[7]}" Background="{Binding Field_GoToColor[7]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[00]}" Grid.Column="{Binding Field_GridX[00]}" Width="30" Height="30" Fill="{Binding Field_Color[00]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[01]}" Grid.Column="{Binding Field_GridX[01]}" Width="30" Height="30" Fill="{Binding Field_Color[01]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[02]}" Grid.Column="{Binding Field_GridX[02]}" Width="30" Height="30" Fill="{Binding Field_Color[02]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[03]}" Grid.Column="{Binding Field_GridX[03]}" Width="30" Height="30" Fill="{Binding Field_Color[03]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[04]}" Grid.Column="{Binding Field_GridX[04]}" Width="30" Height="30" Fill="{Binding Field_Color[04]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[05]}" Grid.Column="{Binding Field_GridX[05]}" Width="30" Height="30" Fill="{Binding Field_Color[05]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[06]}" Grid.Column="{Binding Field_GridX[06]}" Width="30" Height="30" Fill="{Binding Field_Color[06]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[07]}" Grid.Column="{Binding Field_GridX[07]}" Width="30" Height="30" Fill="{Binding Field_Color[07]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[08]}" Grid.Column="{Binding Field_GridX[08]}" Width="30" Height="30" Fill="{Binding Field_Color[08]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[09]}" Grid.Column="{Binding Field_GridX[09]}" Width="30" Height="30" Fill="{Binding Field_Color[09]}"/>
 
-            <Button x:Name="P0_0" Margin="10px" Grid.Row="13" Grid.Column="13" 
-                    Background="{Binding Color_P1}" />
+            <Rectangle Grid.Row ="{Binding Field_GridY[10]}" Grid.Column="{Binding Field_GridX[10]}" Width="30" Height="30" Fill="{Binding Field_Color[10]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[11]}" Grid.Column="{Binding Field_GridX[11]}" Width="30" Height="30" Fill="{Binding Field_Color[11]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[12]}" Grid.Column="{Binding Field_GridX[12]}" Width="30" Height="30" Fill="{Binding Field_Color[12]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[13]}" Grid.Column="{Binding Field_GridX[13]}" Width="30" Height="30" Fill="{Binding Field_Color[13]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[14]}" Grid.Column="{Binding Field_GridX[14]}" Width="30" Height="30" Fill="{Binding Field_Color[14]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[15]}" Grid.Column="{Binding Field_GridX[15]}" Width="30" Height="30" Fill="{Binding Field_Color[15]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[16]}" Grid.Column="{Binding Field_GridX[16]}" Width="30" Height="30" Fill="{Binding Field_Color[16]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[17]}" Grid.Column="{Binding Field_GridX[17]}" Width="30" Height="30" Fill="{Binding Field_Color[17]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[18]}" Grid.Column="{Binding Field_GridX[18]}" Width="30" Height="30" Fill="{Binding Field_Color[18]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[19]}" Grid.Column="{Binding Field_GridX[19]}" Width="30" Height="30" Fill="{Binding Field_Color[19]}"/>
+
+            <Rectangle Grid.Row ="{Binding Field_GridY[20]}" Grid.Column="{Binding Field_GridX[20]}" Width="30" Height="30" Fill="{Binding Field_Color[20]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[21]}" Grid.Column="{Binding Field_GridX[21]}" Width="30" Height="30" Fill="{Binding Field_Color[21]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[22]}" Grid.Column="{Binding Field_GridX[22]}" Width="30" Height="30" Fill="{Binding Field_Color[22]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[23]}" Grid.Column="{Binding Field_GridX[23]}" Width="30" Height="30" Fill="{Binding Field_Color[23]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[24]}" Grid.Column="{Binding Field_GridX[24]}" Width="30" Height="30" Fill="{Binding Field_Color[24]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[25]}" Grid.Column="{Binding Field_GridX[25]}" Width="30" Height="30" Fill="{Binding Field_Color[25]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[26]}" Grid.Column="{Binding Field_GridX[26]}" Width="30" Height="30" Fill="{Binding Field_Color[26]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[27]}" Grid.Column="{Binding Field_GridX[27]}" Width="30" Height="30" Fill="{Binding Field_Color[27]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[28]}" Grid.Column="{Binding Field_GridX[28]}" Width="30" Height="30" Fill="{Binding Field_Color[28]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[29]}" Grid.Column="{Binding Field_GridX[29]}" Width="30" Height="30" Fill="{Binding Field_Color[29]}"/>
+
+            <Rectangle Grid.Row ="{Binding Field_GridY[30]}" Grid.Column="{Binding Field_GridX[30]}" Width="30" Height="30" Fill="{Binding Field_Color[30]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[31]}" Grid.Column="{Binding Field_GridX[31]}" Width="30" Height="30" Fill="{Binding Field_Color[31]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[32]}" Grid.Column="{Binding Field_GridX[32]}" Width="30" Height="30" Fill="{Binding Field_Color[32]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[33]}" Grid.Column="{Binding Field_GridX[33]}" Width="30" Height="30" Fill="{Binding Field_Color[33]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[34]}" Grid.Column="{Binding Field_GridX[34]}" Width="30" Height="30" Fill="{Binding Field_Color[34]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[35]}" Grid.Column="{Binding Field_GridX[35]}" Width="30" Height="30" Fill="{Binding Field_Color[35]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[36]}" Grid.Column="{Binding Field_GridX[36]}" Width="30" Height="30" Fill="{Binding Field_Color[36]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[37]}" Grid.Column="{Binding Field_GridX[37]}" Width="30" Height="30" Fill="{Binding Field_Color[37]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[38]}" Grid.Column="{Binding Field_GridX[38]}" Width="30" Height="30" Fill="{Binding Field_Color[38]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[39]}" Grid.Column="{Binding Field_GridX[39]}" Width="30" Height="30" Fill="{Binding Field_Color[39]}"/>
+
+            <Rectangle Grid.Row ="{Binding Field_GridY[40]}" Grid.Column="{Binding Field_GridX[40]}" Width="30" Height="30" Fill="{Binding Field_Color[40]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[41]}" Grid.Column="{Binding Field_GridX[41]}" Width="30" Height="30" Fill="{Binding Field_Color[41]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[42]}" Grid.Column="{Binding Field_GridX[42]}" Width="30" Height="30" Fill="{Binding Field_Color[42]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[43]}" Grid.Column="{Binding Field_GridX[43]}" Width="30" Height="30" Fill="{Binding Field_Color[43]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[44]}" Grid.Column="{Binding Field_GridX[44]}" Width="30" Height="30" Fill="{Binding Field_Color[44]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[45]}" Grid.Column="{Binding Field_GridX[45]}" Width="30" Height="30" Fill="{Binding Field_Color[45]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[46]}" Grid.Column="{Binding Field_GridX[46]}" Width="30" Height="30" Fill="{Binding Field_Color[46]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[47]}" Grid.Column="{Binding Field_GridX[47]}" Width="30" Height="30" Fill="{Binding Field_Color[47]}"/>
+            
+            <!--Pawns-->
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 0]}" Grid.Column="{Binding Pawn_PositionX[ 0]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 0]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 1]}" Grid.Column="{Binding Pawn_PositionX[ 1]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 1]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 2]}" Grid.Column="{Binding Pawn_PositionX[ 2]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 2]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 3]}" Grid.Column="{Binding Pawn_PositionX[ 3]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 3]}"/>
+                                                                                                                                                                                 
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 4]}" Grid.Column="{Binding Pawn_PositionX[ 4]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 4]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 5]}" Grid.Column="{Binding Pawn_PositionX[ 5]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 5]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 6]}" Grid.Column="{Binding Pawn_PositionX[ 6]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 6]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 7]}" Grid.Column="{Binding Pawn_PositionX[ 7]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 7]}"/>
+                                                                                                                                                 
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 8]}" Grid.Column="{Binding Pawn_PositionX[ 8]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 8]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 9]}" Grid.Column="{Binding Pawn_PositionX[ 9]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 9]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[10]}" Grid.Column="{Binding Pawn_PositionX[10]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[10]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[11]}" Grid.Column="{Binding Pawn_PositionX[11]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[11]}"/> 
+                                                                                                    
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[12]}" Grid.Column="{Binding Pawn_PositionX[12]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[12]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[13]}" Grid.Column="{Binding Pawn_PositionX[13]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[13]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[14]}" Grid.Column="{Binding Pawn_PositionX[14]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[14]}"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[15]}" Grid.Column="{Binding Pawn_PositionX[15]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[15]}"/>
         </Grid>
     </Window.Content>
 </Window>

@@ -68,7 +68,7 @@ namespace Ludo._40_Model
         {
             for (int i = 0; i < 4; i++)
             {
-                if (GameState.PawnPosition[i].Min() == 52)
+                if (GameState.PawnPosition[i].Min() == 48)
                 {
                     GameState.GameOver = true;
                     GameState.Winner = i;
@@ -106,7 +106,7 @@ namespace Ludo._40_Model
             List<int> Options = new List<int>();
             for (int i = 0; i < 3; i++)
             {
-                if (move[i] != 100)
+                if (move[i] != 90)
                 {
                     Options.Add(i);
                 }
