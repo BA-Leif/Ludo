@@ -25,6 +25,12 @@ namespace Ludo._40_Model
         #endregion
 
         #region Spielmechaniken
+        /// <summary>
+        /// Aufführen des Würfelwurfes und anschliessendes Aufrufen der Funktion
+        ///     CheckWichPawnCanMove, die in aAbhängigkeit des Würfelergebnisses überprüft welcher Pöppel überhaupt ziehen darf und angibt wohin und
+        ///         und Aufrufen der Funktion
+        ///     RefreshView_DiePhase, die die View aktualisiert.
+        /// </summary>
         public void DiePhase()
         {
             GameState.InDiePhase = false;
@@ -42,7 +48,17 @@ namespace Ludo._40_Model
             GameState.DieValue = rnd.Next(5, 7);
         }
 
-
+        /// <summary>
+        /// Ausführen eines Zuges mit dem Pöppel "pawnID" von Spieler "PlayerID".
+        /// hierbei wird nur dann ein zug ausgeführt, wenn dier Wert des Pöppels in GameState.PawnOptions undgleich 90 ist.
+        /// 
+        /// Dann wird Die Methode MovePawn des Objektes PawnMovement aufgerufen, welche den Zugausführt.
+        /// Anschliessend werden die Siegbedingungen überprüft,
+        ///         der aktive Spieler gewechselt, sofern keine 6 geworfen wurde und
+        ///         überprüft, ob eine KI dran ist, die dann den zug ausführt.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="pawnID"></param>
         public void MovePhase(int player, int pawnID)
         {           
             if (player == GameState.ActivePlayer)
@@ -50,6 +66,7 @@ namespace Ludo._40_Model
                 if (GameState.PawnOptions[pawnID] != 90)
                 {
                     PawnMovement.MovePawn(pawnID);
+                    VictoryConditions();
                     VM.RefreshView_MovePhase();
                     if (GameState.DieValue != 6)
                     {
@@ -103,6 +120,9 @@ namespace Ludo._40_Model
 
 
         #region Verschiedenes
+        /// <summary>
+        /// Abhängig vom Wert des Arrays GameState.AI an der Stelle der SpielerID, wird automatisiert ein Zug der KI ausgeführt.
+        /// </summary>
         public void AI_Player()
         {
             if (GameState.AI[GameState.ActivePlayer])
@@ -112,8 +132,14 @@ namespace Ludo._40_Model
             }
         }
 
+        /// <summary>
+        /// Die KI bestimmt unter allen Pöppel, die einen gültigen Zug machen können einen zufälligen, dessen Zug dann ausgeführt wird.
+        /// Sollte kein Zug möglich sein, so wird die Methode AI_Pass aufgerufen.
+        /// </summary>
+        /// <param name="move"></param>
         public void AI_Move(int[] move)
         {
+            //Die Liste enthält gleich die IDs aller Pöppel, die einen gültigen zug ausführen können
             List<int> Options = new List<int>();
             for (int i = 0; i < 3; i++)
             {
@@ -122,6 +148,7 @@ namespace Ludo._40_Model
                     Options.Add(i);
                 }
             }
+            //Züge möglich, also Liste nicht leer.
             if (Options.Count != 0)
             {
                 Random rnd = new Random();
@@ -129,15 +156,20 @@ namespace Ludo._40_Model
                 int rndPawn = Options[rndSelect];
                 MovePhase(GameState.ActivePlayer, rndPawn);
             }
+            //Liste leer, also Passen
             else
             {
                 AI_Pass();
             }
         }
 
+        /// <summary>
+        /// KI passt, der aktive Spieler wechselt. 
+        /// </summary>
         public void AI_Pass()
         {
             ChangePlayer();
+            //der folgende Spieler Kkönnte eine KI sein
             AI_Player();
         }
         #endregion
