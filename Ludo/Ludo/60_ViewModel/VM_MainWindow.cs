@@ -30,8 +30,8 @@ namespace Ludo._60_ViewModel
         //  10x+55 - 10x+58    Zielfelder der Spieler, wobei x der Speilerzahl (0-3) entspricht.
         //
         //  Die Einträge können sein
-        //        "": ein leeres Feld
-        //      Px_n: Figur n von Spieler x steht auf dem Feld.
+        //      {9, 9}: ein leeres Feld
+        //      {n, x}: Figur n von Spieler x steht auf dem Feld.
         public List<int[]> BoardView { get; set; }
 
         //Farben
@@ -44,6 +44,7 @@ namespace Ludo._60_ViewModel
 
         //Text
         public string Text_Die { get; set; }
+        public string Text_Information { get; set; }
 
         //Commands
         public ICommand Cmd_TestClick { get; set; }
@@ -51,21 +52,31 @@ namespace Ludo._60_ViewModel
         public ICommand Cmd_MovePhase { get; set; }
 
         //FieldButtons
+        //  Die Arrays haben eine Länge von 90 (siehe BoardView) 
+            //x- bzw. Y-Position des Feldes im Gitter der View
         public int[] Field_GridX { get; set; }
         public int[] Field_GridY { get; set; }
+            //Farbe jedes einzelnen Feldes
         public string[] Field_Color { get; set; }
 
         //Pawns
+        // Die Arrays haben eine Länge von 16, wobei jedem Eintrag genau ein Pöppel zugeordnet werden kann.
+        //          Index=(SpielerID * 4) + PöppelID
+            //X- bzw. Y-Position des Pöppels
+            //  diese ist immer gleich der Position eines Feldes
         public int[] Pawn_PositionX { get; set; }
         public int[] Pawn_PositionY { get; set; }
+            //enthält Farbeninformationen über den Rand des Pöppels (orange: Zug möglich)
         public string[] Pawn_Active { get; set; }
 
         //Konstruktor
         public VM_MainWindow()
         {
+            //Initialisieren von Game und GameState
             GameState = new GameState();
             Game = new Game_Main(this);
 
+            //soll eine Konstante sein
             Field_GridX = new int[90]
                 {8,8,8,8,7,6,6,6,5,4,3,3,
                  3,4,5,6,6,6,7,8,8,8,8,9,
@@ -76,7 +87,6 @@ namespace Ludo._60_ViewModel
                  3,3,4,4,0,4,5,6,7,0,
                  11,12,12,11,0,9,9,9,9,0,
                  15,15,14,14,0,14,13,12,11,0};
-
             Field_GridY = new int[90]
                 {16,15,14,13,13,13,12,11,11,11,11,10,
                  9,9,9,9,8,7,7,7,6,5,4,4,
@@ -88,18 +98,16 @@ namespace Ludo._60_ViewModel
                  4,4,5,5,0,5,6,7,8,0,
                  12,13,13,12,0,10,10,10,10,0};
 
-
-
+            //Initialisieren der BoardView und setzen alle Feldfarben.
             BoardView = new List<int[]>();
             Field_Color = new string[90];
-
             for (int i = 0; i < 90; i++)
             {
                 BoardView.Add(new int[2] { 9, 9 });
                 Field_Color[i] = "lightgray";
             }
 
-            //Pawns
+            //Pöppel an ihre Startpositionen setzen
             Pawn_PositionX = new int[16];
             Pawn_PositionY = new int[16];
             Pawn_Active = new string[16];
@@ -114,7 +122,7 @@ namespace Ludo._60_ViewModel
             }
             
 
-            //Colors
+            //Farben bestimmen
             Color_Background = "gray";
             Color_EmptyField = "lightgray";
             Color_P1 = "red";
@@ -123,8 +131,9 @@ namespace Ludo._60_ViewModel
             Color_P4 = "green";
 
 
-            //Text
+            //Texte
             Text_Die = "X";
+            Text_Information = "Hier stehen Dinge.";
 
             //Commands
             Cmd_TestClick = new RelayCommand(TestClick);
@@ -134,6 +143,7 @@ namespace Ludo._60_ViewModel
         #endregion
 
         #region View & VM Beziehungen
+        //View über Änderungen informieren
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnNotifyPropertyChanged(string propertyName)
         {
@@ -143,8 +153,13 @@ namespace Ludo._60_ViewModel
             }
         }
 
+        /// <summary>
+        /// Diese Funktion erstellt anhand der Eigenschaft "PawnPositions" des Objektes "GameState" eine globale Beschreibung der Pöppelpositionen.
+        /// 
+        /// </summary>
         public void Change_BoardView()
         {
+            //jedes Feld wird zurückgesetzt
             for (int i = 0; i < 90; i++)
             {
                 if (BoardView[i].Max() < 9)
@@ -152,34 +167,42 @@ namespace Ludo._60_ViewModel
                     BoardView[i] = new int[2] { 9, 9 };
                 }
             }
-            for (int i = 0; i < 4; i++)
+            //betrachten eines jeden Pöppels
+            for (int playerID = 0; playerID < 4; playerID++)
             {
-                for (int k = 0; k < 4; k++)
+                for (int pawnID = 0; pawnID < 4; pawnID++)
                 {
-                    int Position_PlayersView = GameState.PawnPosition[i][k];
+                    // Position des Pöppels, als Entfernung zum eigenen Start
+                    int Position_PlayersView = GameState.PawnPosition[playerID][pawnID];
                     //Pöppel steht auf einem normalen Feld
                     if (Position_PlayersView >= 0 && Position_PlayersView <= 47)
                     {
-                        BoardView[(Position_PlayersView + (12 * i)) % 48] = new int[2] { i, k };
+                        BoardView[(Position_PlayersView + (12 * playerID)) % 48] = new int[2] { playerID, pawnID };
                     }
                     //Pöppel steht auf einem Zielfeld
                     else if (Position_PlayersView >= 48)
                     {
-                        BoardView[Position_PlayersView - 48 + 50 + 5 + (10 * i)] = new int[2] { i, k };
+                        BoardView[Position_PlayersView - 48 + 50 + 5 + (10 * playerID)] = new int[2] { playerID, pawnID };
                     }
                     //Pöppel hat das Haus noch nicht verlassen
                     else if (Position_PlayersView == -1)
                     {
-                        BoardView[50 + (10 * i) + k] = new int[2] { i, k };
+                        BoardView[50 + (10 * playerID) + pawnID] = new int[2] { playerID, pawnID };
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Aktualisiert die View nach dem Würfelwurf.
+        ///     Anzeige des Würfelergebnisses und Hervorhebung der Pöppel, die ziehen können.
+        /// </summary>
         public void RefreshView_DiePhase()
         {
             Change_BoardView();
+            //Anzeige des Würfelergebnisses
             Text_Die = GameState.DieValue.ToString();
+            // nur Pöppel, deren Wert in der Variable GameState.PawnOptions ungleich 90 sind können sich bewegen
             for (int i = 0; i < 4; i++)
             {
                 if (GameState.PawnOptions[i] != 90)
@@ -187,17 +210,27 @@ namespace Ludo._60_ViewModel
                     Pawn_Active[(GameState.ActivePlayer * 4) + i] = "orange";
                 }  
             }
-            //Hover soll anzeigen, wo der Pöppel hingeht
+    //
+    //Hover soll anzeigen, wo der Pöppel hingeht
+    //
+            //Informieren der View, dass eine Änderung erfolgt ist.
             OnNotifyPropertyChanged("Pawn_Active");
             OnNotifyPropertyChanged("Text_Die");
         }
 
+        /// <summary>
+        /// Aktualisiert die View nach dem Würfelwurf.
+        ///     inbesondere die Bewegung der Pöppel.
+        /// </summary>
         public void RefreshView_MovePhase()
         {
             Change_BoardView();
+            //Löschung des vorigen Würfelergebnisses
             Text_Die = "!";
+            //Ändern der Pöppelpositionen anhand der Variable BoardView
             for (int i = 0; i < BoardView.Count; i++)
             {
+                //Es lohnen sich nur Felder zu betrachten, die nicht leer sind (leer: {9,9})
                 if (BoardView[i].Min() < 9)
                 {
                     int player = BoardView[i][0];
@@ -206,6 +239,7 @@ namespace Ludo._60_ViewModel
                     Pawn_PositionY[(player * 4) + pawnID] = Field_GridY[i];
                 }
             }
+            //visuelle deaktivierung aller Pöppel
             for (int pawnID = 0; pawnID < 4; pawnID++)
             {
                 for (int player = 0; player < 4; player++)
@@ -213,30 +247,50 @@ namespace Ludo._60_ViewModel
                     Pawn_Active[(player * 4) + pawnID] = "black";
                 }
             }
-                OnNotifyPropertyChanged("Text_Die");
+            //Informieren der View, dass eine Änderung erfolgt ist.
+            OnNotifyPropertyChanged("Text_Die");
             OnNotifyPropertyChanged("Pawn_PositionX");
             OnNotifyPropertyChanged("Pawn_PositionY");
         }
         #endregion
 
         #region Commands
+        /// <summary>
+        /// Diese Fiunktion wird gestartet, wenn ein Spieler das WürfelFeld anklickt.
+        /// Anschliessend wird die Funktion DiePhase vom Objekt "Game" aufgerufen, welche ein zufälliges Würfelergebnis bestimmt
+        ///     und überprüfen lässt, ob und wohin die Pöppel des aktiven Spielers gehen können.
+        /// </summary>
+        /// <param name="obj"></param>
         public void DiePhase_Start(object obj)
         {
             Game.DiePhase();
         }
 
+        /// <summary>
+        /// Diese Funktion wird gestartet, wenn ein Spieler einen Pöppel klickt.
+        /// Anschliessend wird die Funktion MovePhase vom Objekt "Game" aufgerufen, welche nach Überprüfung, ob dieser pöppel bewegt werden darf,
+        ///     diesen bewegt. Anschliessend werden die Siegbedingungen überprüft, der aktive Spieler gewechselt und eventuell KI-Züge ausgeführt.
+        ///     
+        /// Als Paramater wird von der View die Spieler- und PöppelID des angeklickten Pöppels übergeben.
+        /// </summary>
+        /// <param name="obj"></param>
         public void MovePhase_Start(object obj)
         {
             string Pawn_Information = obj as string;
-            int player = Int32.Parse(Pawn_Information.Substring(0, 1));
+            int playerID = Int32.Parse(Pawn_Information.Substring(0, 1));
             int pawnID = Int32.Parse(Pawn_Information.Substring(1, 1));
-            Game.MovePhase(player, pawnID);
+            Game.MovePhase(playerID, pawnID);
 
         }
 
         #endregion
 
         #region Hilfsfunktionen
+        /// <summary>
+        /// Die Funktion wählt eine Farbe anhand der übergebenen SpielerID.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         public string ChooseColor(int player)
         {
             string color = "";
