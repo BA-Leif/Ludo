@@ -117,8 +117,6 @@ namespace Ludo._40_Model
 
         #endregion
 
-
-
         #region Verschiedenes
         /// <summary>
         /// Abhängig vom Wert des Arrays GameState.AI an der Stelle der SpielerID, wird automatisiert ein Zug der KI ausgeführt.
