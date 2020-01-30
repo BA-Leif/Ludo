@@ -17,11 +17,11 @@ namespace Ludo_TestProject
         {
             //Arrange:
             VM_MainWindow VM = new VM_MainWindow();
-            int[][] pawnPosition = new int[4][];
-            pawnPosition[0] = new int[4] { -1, -1, -1, -1 };
-            pawnPosition[1] = new int[4] { -1, -1, -1, -1 };
-            pawnPosition[2] = new int[4] { -1, -1, -1, -1 };
-            pawnPosition[3] = new int[4] { -1, -1, -1, -1 };
+            
+            VM.GameState.PawnPosition[0] = new int[4] { -1, -1, -1, -1 };
+            VM.GameState.PawnPosition[1] = new int[4] { -1, -1, -1, -1 };
+            VM.GameState.PawnPosition[2] = new int[4] { -1, -1, -1, -1 };
+            VM.GameState.PawnPosition[3] = new int[4] { -1, -1, -1, -1 };
 
             List<int[]>  expected = new List<int[]>();
             for (int i = 0; i < 100; i++)
@@ -37,7 +37,7 @@ namespace Ludo_TestProject
             }
 
             //Act:
-            VM.Change_BoardView(pawnPosition);
+            VM.Change_BoardView();
 
             //Assert:
             List<int[]> actual = VM.BoardView;
@@ -56,11 +56,10 @@ namespace Ludo_TestProject
         {
             //Arrange:
             VM_MainWindow VM = new VM_MainWindow();
-            int[][] pawnPosition = new int[4][];
-            pawnPosition[0] = new int[4] { 52,53,54,55 };
-            pawnPosition[1] = new int[4] { 55,53,54,52 };
-            pawnPosition[2] = new int[4] { 55,54,53,52 };
-            pawnPosition[3] = new int[4] { 54,52,53,55 };
+            VM.GameState.PawnPosition[0] = new int[4] { 52,53,54,55 };
+            VM.GameState.PawnPosition[1] = new int[4] { 55,53,54,52 };
+            VM.GameState.PawnPosition[2] = new int[4] { 55,54,53,52 };
+            VM.GameState.PawnPosition[3] = new int[4] { 54,52,53,55 };
 
             List<int[]> expected = new List<int[]>();
             for (int i = 0; i < 100; i++)
@@ -89,7 +88,7 @@ namespace Ludo_TestProject
 
 
             //Act:
-            VM.Change_BoardView(pawnPosition);
+            VM.Change_BoardView();
 
             //Assert:
             List<int[]> actual = VM.BoardView;
@@ -108,11 +107,10 @@ namespace Ludo_TestProject
         {
             //Arrange:
             VM_MainWindow VM = new VM_MainWindow();
-            int[][] pawnPosition = new int[4][];
-            pawnPosition[0] = new int[4] { 52, 34, 54, 55 };
-            pawnPosition[1] = new int[4] { 55, 53, 9, 52 };
-            pawnPosition[2] = new int[4] { 55, 54, 53, 0 };
-            pawnPosition[3] = new int[4] { 11, 52, 43, 55 };
+            VM.GameState.PawnPosition[0] = new int[4] { 52, 34, 54, 55 };
+            VM.GameState.PawnPosition[1] = new int[4] { 55, 53, 9, 52 };
+            VM.GameState.PawnPosition[2] = new int[4] { 55, 54, 53, 0 };
+            VM.GameState.PawnPosition[3] = new int[4] { 11, 52, 43, 55 };
 
             List<int[]> expected = new List<int[]>();
             for (int i = 0; i < 100; i++)
@@ -141,7 +139,7 @@ namespace Ludo_TestProject
 
 
             //Act:
-            VM.Change_BoardView(pawnPosition);
+            VM.Change_BoardView();
 
             //Assert:
             List<int[]> actual = VM.BoardView;

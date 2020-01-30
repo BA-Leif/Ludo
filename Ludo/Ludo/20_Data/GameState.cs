@@ -15,11 +15,14 @@ namespace Ludo._20_Data
         public int DieValue { get; set; }
         public bool GameOver { get; set; }
         public int Winner { get; set; }
+        public bool InDiePhase { get; set; }
 
         // Die Eigenschaft enthält für jeden Pöppel die Information, wie weit er von seinem EIGENEN Start aus bereits gelaufen ist.
         // Hierbei steht der Wert -1 für "im Haus stehend".
         // Die erste Dimension gibt den Besitzer des Pöppel an, die zweite Dimension die individuelle ID (0-3)
         public int[][] PawnPosition { get; set; }
+
+        public int[] PawnOptions { get; set; }
 
 
         #endregion
@@ -38,6 +41,9 @@ namespace Ludo._20_Data
             PlayerNames = new string[4] { "Tom", "tOm", "toM", "TOM" };
             GameOver = false;
             Winner= 100;
+            InDiePhase = true;
+            PawnOptions = new int[4] { 100, 100, 100, 100 };
+
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using Ludo._40_Model;
+using Ludo._60_ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_StartOccupied_1()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
@@ -42,7 +44,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_StartOccupied_2()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = 20;
             Game.GameState.PawnPosition[1][1] = 21;
@@ -69,7 +72,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_MoveOutby6_1()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = 3;
@@ -96,7 +100,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_MoveOutby6_2()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = 3;
@@ -122,7 +127,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_Overtake_1()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
@@ -148,7 +154,9 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_Overtake_2()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
@@ -174,7 +182,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_MovementOutOfBounds()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;
@@ -200,7 +209,8 @@ namespace Ludo_TestProject
         public void CanMoveQuestion_NoMovePossible()
         {
             //Arrange:
-            Game_Main Game = new Game_Main();
+            VM_MainWindow vm = new VM_MainWindow();
+            Game_Main Game = new Game_Main(vm);
             Game.GameState.ActivePlayer = 1;
             Game.GameState.PawnPosition[1][0] = -1;
             Game.GameState.PawnPosition[1][1] = -1;

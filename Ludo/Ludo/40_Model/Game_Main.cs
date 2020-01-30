@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ludo._20_Data;
+using Ludo._60_ViewModel;
 
 namespace Ludo._40_Model
 {
@@ -11,17 +12,35 @@ namespace Ludo._40_Model
     {
         #region Eigenschaften und Konstruktor
         public GameState GameState { get; set; }
+        public VM_MainWindow VM { get; set; }
         public Pawn_Movement PawnMovement { get; set; }
 
 
-        public Game_Main()
+        public Game_Main(VM_MainWindow vm)
         {
-            this.GameState = new GameState();
+            this.VM = vm;
+            this.GameState = VM.GameState;
             this.PawnMovement = new Pawn_Movement(this);
         }
         #endregion
 
         #region Spielmechaniken
+        public void DiePhase()
+        {
+            GameState.InDiePhase = false;
+            RollDie();
+            GameState.PawnOptions = PawnMovement.CheckWhichPawnCanMove();
+        }
+
+        /// <summary>
+        /// Es wird eine zufällige Zahl zwischen 1 und 6 bestimmt, die dann als das aktuelle Würfelergebniss in GameState gespeichert wird.
+        /// </summary>
+        public void RollDie()
+        {
+            Random rnd = new Random();
+            GameState.DieValue = rnd.Next(1, 7);
+        }
+
 
         public void MovePhase()
         {
@@ -31,7 +50,6 @@ namespace Ludo._40_Model
         public void movePawn(int pawnID, int targetSpot)
         {
             GameState.PawnPosition[GameState.ActivePlayer][pawnID] = targetSpot;
-
         }
 
 
@@ -57,11 +75,7 @@ namespace Ludo._40_Model
                 }
             }
         }
-        #endregion
 
-
-
-        #region Verschiedenes
         /// <summary>
         /// Die Ziffer, die den aktiven Spieler anzeigt wird um 1 erhöht, bzw. auf 0 gesetzt, sollte der Speiler 3 seinen Zug gemacht haben.
         /// Die Ziffer wird in der Variable ActivePlayer der Klasse GameState gespeichert.
@@ -80,14 +94,11 @@ namespace Ludo._40_Model
             GameState.ActivePlayer = newPlayer;
         }
 
-        /// <summary>
-        /// Es wird eine zufällige Zahl zwischen 1 und 6 bestimmt, die dann als das aktuelle Würfelergebniss in GameState gespeichert wird.
-        /// </summary>
-        public void RollDie()
-        {
-            Random rnd = new Random();
-            GameState.DieValue = rnd.Next(1, 7);
-        }
+        #endregion
+
+
+
+        #region Verschiedenes
 
 
         public void AI_Move(int[] move)
@@ -109,7 +120,7 @@ namespace Ludo._40_Model
 
         public void RefreshViewModel()
         {
-
+            VM.RefreshView_DiePhase();
         }
         #endregion
     }
