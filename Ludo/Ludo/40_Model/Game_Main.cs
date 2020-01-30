@@ -30,6 +30,7 @@ namespace Ludo._40_Model
             GameState.InDiePhase = false;
             RollDie();
             GameState.PawnOptions = PawnMovement.CheckWhichPawnCanMove();
+            VM.RefreshView_DiePhase();
         }
 
         /// <summary>
@@ -38,25 +39,28 @@ namespace Ludo._40_Model
         public void RollDie()
         {
             Random rnd = new Random();
-            GameState.DieValue = rnd.Next(1, 7);
+            GameState.DieValue = rnd.Next(5, 7);
         }
 
 
-        public void MovePhase()
-        {
+        public void MovePhase(int player, int pawnID)
+        {           
+            if (player == GameState.ActivePlayer)
+            {               
+                if (GameState.PawnOptions[pawnID] != 90)
+                {
+                    PawnMovement.MovePawn(pawnID);
+                    VM.RefreshView_MovePhase();
+                    if (GameState.DieValue != 6)
+                    {
+                        ChangePlayer();
+                    }
+                    AI_Player();
+                }
+            }
 
         }
 
-        public void movePawn(int pawnID, int targetSpot)
-        {
-            GameState.PawnPosition[GameState.ActivePlayer][pawnID] = targetSpot;
-        }
-
-
-        public void BeatPawn(int pawnID, int targetSpot)
-        {
-
-        }
 
 
         /// <summary>
@@ -99,7 +103,14 @@ namespace Ludo._40_Model
 
 
         #region Verschiedenes
-
+        public void AI_Player()
+        {
+            if (GameState.AI[GameState.ActivePlayer])
+            {
+                DiePhase();
+                AI_Move(GameState.PawnOptions);
+            }
+        }
 
         public void AI_Move(int[] move)
         {
@@ -111,16 +122,23 @@ namespace Ludo._40_Model
                     Options.Add(i);
                 }
             }
-            Random rnd = new Random();
-            int rndSelect = rnd.Next(0, Options.Count);
-            int rndPawn = Options[rndSelect];
-            movePawn(rndPawn, move[rndPawn]);
+            if (Options.Count != 0)
+            {
+                Random rnd = new Random();
+                int rndSelect = rnd.Next(0, Options.Count);
+                int rndPawn = Options[rndSelect];
+                MovePhase(GameState.ActivePlayer, rndPawn);
+            }
+            else
+            {
+                AI_Pass();
+            }
         }
 
-
-        public void RefreshViewModel()
+        public void AI_Pass()
         {
-            VM.RefreshView_DiePhase();
+            ChangePlayer();
+            AI_Player();
         }
         #endregion
     }

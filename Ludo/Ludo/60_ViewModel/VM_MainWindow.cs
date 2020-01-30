@@ -22,12 +22,12 @@ namespace Ludo._60_ViewModel
         // Enthält Informationen über das aktuelle Spielgeschehen
         // Jedes Feld auf dem Brett hat hierbei einen festen Platz im Array.
         //      Index          Feld
-        //      0 - 51         StandardFelder des Rundkurses, wobei mit der Uhr durchgezählt wird.
+        //      0 - 47         StandardFelder des Rundkurses, wobei mit der Uhr durchgezählt wird.
         //                          Board[0] ist gleich dem Startfeld des ersten Spielers unten links.
-        //                          Board[51] ist gleich dem Endfeld des ersten Spielers.
+        //                          Board[47] ist gleich dem Endfeld des ersten Spielers.
         //      
-        //  10x+60 - 10x+63    Häuser der Spieler, wobei x der Speilerzahl (0-3) entspricht.
-        //  10x+65 - 10x+68    Zielfelder der Spieler, wobei x der Speilerzahl (0-3) entspricht.
+        //  10x+50 - 10x+53    Häuser der Spieler, wobei x der Speilerzahl (0-3) entspricht.
+        //  10x+55 - 10x+58    Zielfelder der Spieler, wobei x der Speilerzahl (0-3) entspricht.
         //
         //  Die Einträge können sein
         //        "": ein leeres Feld
@@ -48,6 +48,7 @@ namespace Ludo._60_ViewModel
         //Commands
         public ICommand Cmd_TestClick { get; set; }
         public ICommand Cmd_DiePhase { get; set; }
+        public ICommand Cmd_MovePhase { get; set; }
 
         //FieldButtons
         public int[] Field_GridX { get; set; }
@@ -128,6 +129,7 @@ namespace Ludo._60_ViewModel
             //Commands
             Cmd_TestClick = new RelayCommand(TestClick);
             Cmd_DiePhase = new RelayCommand(DiePhase_Start);
+            Cmd_MovePhase = new RelayCommand(MovePhase_Start);
         }
         #endregion
 
@@ -204,7 +206,7 @@ namespace Ludo._60_ViewModel
                     Pawn_PositionY[(player * 4) + pawnID] = Field_GridY[i];
                 }
             }
-            for (int pawnID = 0; pawnID < 3; pawnID++)
+            for (int pawnID = 0; pawnID < 4; pawnID++)
             {
                 for (int player = 0; player < 4; player++)
                 {
@@ -221,9 +223,16 @@ namespace Ludo._60_ViewModel
         public void DiePhase_Start(object obj)
         {
             Game.DiePhase();
-            RefreshView_DiePhase();
         }
 
+        public void MovePhase_Start(object obj)
+        {
+            string Pawn_Information = obj as string;
+            int player = Int32.Parse(Pawn_Information.Substring(0, 1));
+            int pawnID = Int32.Parse(Pawn_Information.Substring(1, 1));
+            Game.MovePhase(player, pawnID);
+
+        }
 
         #endregion
 
