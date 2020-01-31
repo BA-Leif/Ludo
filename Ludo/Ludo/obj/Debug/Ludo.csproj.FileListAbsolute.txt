@@ -15,3 +15,4 @@ C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.pdb
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\80_View\NewGameWindow.g.cs
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\80_View\NewGameWindow.baml
+C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csprojAssemblyReference.cache

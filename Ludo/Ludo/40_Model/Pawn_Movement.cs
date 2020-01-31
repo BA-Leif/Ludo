@@ -22,12 +22,16 @@ namespace Ludo._40_Model
 
         #region Methods
         /// <summary>
+        /// Überprüft, für jeden der Pöppel des aktiven Spielers, ob diese einen gültigen Zug amchen können.
+        /// Dies ist abhängig vom jeweiligen Standort und dem Würfelergebniss.
         /// 
+        /// Am Ende gibt die Funktion ein Array aus, welches die jeweiligen Zielfelder - so ein Zug möglich ist- für jeden Pöppel erthält.
+        /// Sollte keine Zug möglich sein, so ist der Eintrag eine "90".
         /// </summary>
         /// <returns></returns>
         public int[] CheckWhichPawnCanMove()
         {
-            //Initialize the output variable with invalid moves for each pawn.
+            //Initialize  the output variable with invaalid moves for each pawn.
             int[] move = new int[4] { 90, 90, 90, 90};
 
             //Freiräumen des Startfeldes erzwingen
@@ -94,6 +98,11 @@ namespace Ludo._40_Model
             return move;
         }
 
+        /// <summary>
+        /// Bewegt den Pöppel auf das in "PawnOptions" zugewiesene Feld. Davor wird überprüft, 
+        ///     ob das Feld besetzt war und dieser Pöppel gegebnenfalls ins Haus gesetzt.
+        /// </summary>
+        /// <param name="pawnID"></param>
         public void MovePawn(int pawnID)
         {
             int targetSpot = GS.PawnOptions[pawnID];
@@ -101,20 +110,33 @@ namespace Ludo._40_Model
             GS.PawnPosition[GS.ActivePlayer][pawnID] = targetSpot;
         }
 
+        /// <summary>
+        /// Überprüft für das in targetSpot angegebene Feld, ob dieses Besetzt ist. 
+        /// Ist dies der Fall wird der dort stehende Pöppel in sein Haus zurückgesetzt.
+        /// Die Variable targetSpor beschreibt das Feld aus Sicht des aktiven Spielers.
+        /// </summary>
+        /// <param name="targetSpot"></param>
         public void BeatPawn(int targetSpot)
         {
+            //Überprüfung nur relevant, wenn das Feld ein Standerdfeld ist, also weder ein Ziel, noch ein Hausfeld
             if (targetSpot != -1 &&
                 targetSpot <= 47)
             {
+                //durchgehen alle Spieler
                 for (int otherPlayer = 0; otherPlayer < 4; otherPlayer++)
                 {
+                    //Bestimmen der Feldbeschreibung aus Sicht des anderen Spielers
                     int targetSpot_FromOtherPlayersView = (targetSpot + (48 + (12 * GS.ActivePlayer)) + (48 - (12 * otherPlayer))) % 48;
+                    //Durchgehen aller Pöppel des anderen Spielers
                     for (int otherPawnID = 0; otherPawnID < 4; otherPawnID++)
                     {
+                        //Überprüfen ergibt auch hierr nur Sinn, wenn dieser auf einem Standardfeld ist.
                         int otherSpot = GS.PawnPosition[otherPlayer][otherPawnID];
                         if (otherSpot != -1 &&
                             otherSpot <= 47)
                         {
+                            //zurücksetzen des anderen Pöppels, sofern das Zielfeld und das Feld des betrachtenden Pöppels 
+                            //  aus sich des anderen Spielers übereinstimmen.
                             if (targetSpot_FromOtherPlayersView == otherSpot)
                             {
                                 GS.PawnPosition[otherPlayer][otherPawnID] = -1;

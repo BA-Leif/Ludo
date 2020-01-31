@@ -76,13 +76,13 @@ namespace Ludo._40_Model
                     PawnMovement.MovePawn(pawnID);
                     VictoryConditions();
                     VM.RefreshView_MovePhase();
-
+                    //Überprüfung, ob eine 6 geworfen wurde
                     if (GameState.DieValue != 6)
                     {
                         ChangePlayer();
+                        //zurücksetzen des Zählers für gescheiterte Versuche
                         GameState.AmountOfRetries = 0;
-                    }
-                 
+                    }     
                     AI_Player();
                 }
             }
@@ -128,7 +128,12 @@ namespace Ludo._40_Model
         #endregion
 
         #region Verschiedenes
-
+        /// <summary>
+        /// wird aufgerufen, sofern ein Spieler keine Zugmöglichkeiten hat und Überspringt damit die Zugphase.
+        /// Sollte ein Spieler mehr als 3mal erfolglos gewesen sein, wird der aktive Spieler gewechselt, 
+        /// ansonsten hatder Spieler eine weitere Chance.
+        /// 
+        /// </summary>
         public void Player_Pass()
         {
             GameState.InDiePhase = true;
@@ -165,7 +170,7 @@ namespace Ludo._40_Model
         /// <param name="move"></param>
         public void AI_Move(int[] move)
         {
-            //Die Liste enthält gleich die IDs aller Pöppel, die einen gültigen zug ausführen können
+            //Die Liste enthält gleich die IDs aller Pöppel, die einen gültigen Zug ausführen können
             List<int> Options = new List<int>();
             for (int i = 0; i < 3; i++)
             {

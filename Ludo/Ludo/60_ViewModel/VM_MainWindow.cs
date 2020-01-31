@@ -294,12 +294,14 @@ namespace Ludo._60_ViewModel
 
         }
 
-
+        /// <summary>
+        /// Öffnet ein neues Fenster, indem der Spieler die Eigenschaften der Mitspieler für ein neues Spiel eingestellt werden können.
+        /// </summary>
+        /// <param name="obj"></param>
         public void NewGame(object obj)
         {
             NewGameWindow newGame = new NewGameWindow(this);
             newGame.Show();
-
         }
 
         #endregion
