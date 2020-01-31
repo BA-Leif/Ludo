@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Ludo._20_Data;
 using Ludo._60_ViewModel;
@@ -27,7 +28,7 @@ namespace Ludo._40_Model
         #region Spielmechaniken
         /// <summary>
         /// Aufführen des Würfelwurfes und anschliessendes Aufrufen der Funktion
-        ///     CheckWichPawnCanMove, die in aAbhängigkeit des Würfelergebnisses überprüft welcher Pöppel überhaupt ziehen darf und angibt wohin und
+        ///     CheckWhichPawnCanMove, die in Abhängigkeit des Würfelergebnisses überprüft welcher Pöppel überhaupt ziehen darf und angibt wohin und
         ///         und Aufrufen der Funktion
         ///     RefreshView_DiePhase, die die View aktualisiert.
         /// </summary>
@@ -37,6 +38,12 @@ namespace Ludo._40_Model
             RollDie();
             GameState.PawnOptions = PawnMovement.CheckWhichPawnCanMove();
             VM.RefreshView_DiePhase();
+            //sollte es keinen Wert kleiner 90 geben, sokann der Spieler mit dem Würfelergebniss keinen gültigen Zug ausführen.
+            if (GameState.PawnOptions.Min() == 90)
+            {
+                GameState.AmountOfRetries++;
+                Player_Pass();
+            }
         }
 
         /// <summary>
@@ -45,7 +52,7 @@ namespace Ludo._40_Model
         public void RollDie()
         {
             Random rnd = new Random();
-            GameState.DieValue = rnd.Next(5, 7);
+            GameState.DieValue = rnd.Next(1, 7);
         }
 
         /// <summary>
@@ -60,7 +67,8 @@ namespace Ludo._40_Model
         /// <param name="player"></param>
         /// <param name="pawnID"></param>
         public void MovePhase(int player, int pawnID)
-        {           
+        {
+            GameState.InDiePhase = true;
             if (player == GameState.ActivePlayer)
             {               
                 if (GameState.PawnOptions[pawnID] != 90)
@@ -68,14 +76,16 @@ namespace Ludo._40_Model
                     PawnMovement.MovePawn(pawnID);
                     VictoryConditions();
                     VM.RefreshView_MovePhase();
+
                     if (GameState.DieValue != 6)
                     {
                         ChangePlayer();
+                        GameState.AmountOfRetries = 0;
                     }
+                 
                     AI_Player();
                 }
             }
-
         }
 
 
@@ -118,6 +128,23 @@ namespace Ludo._40_Model
         #endregion
 
         #region Verschiedenes
+
+        public void Player_Pass()
+        {
+            GameState.InDiePhase = true;
+            VM.RefreshView_MovePhase();
+            if (GameState.AmountOfRetries < 3)
+            {
+
+            }
+            else
+            {
+                ChangePlayer();
+                GameState.AmountOfRetries = 0;
+            }
+            AI_Player();
+        }
+
         /// <summary>
         /// Abhängig vom Wert des Arrays GameState.AI an der Stelle der SpielerID, wird automatisiert ein Zug der KI ausgeführt.
         /// </summary>
@@ -127,6 +154,7 @@ namespace Ludo._40_Model
             {
                 DiePhase();
                 AI_Move(GameState.PawnOptions);
+
             }
         }
 
@@ -157,18 +185,8 @@ namespace Ludo._40_Model
             //Liste leer, also Passen
             else
             {
-                AI_Pass();
+                Player_Pass();
             }
-        }
-
-        /// <summary>
-        /// KI passt, der aktive Spieler wechselt. 
-        /// </summary>
-        public void AI_Pass()
-        {
-            ChangePlayer();
-            //der folgende Spieler Kkönnte eine KI sein
-            AI_Player();
         }
         #endregion
     }

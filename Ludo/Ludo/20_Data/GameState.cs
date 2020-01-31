@@ -17,6 +17,8 @@ namespace Ludo._20_Data
         public int ActivePlayer { get; set; }
         //enthält das aktuelle Würfelergebniss
         public int DieValue { get; set; }
+        //enthält die Anzahl, wie oft der Spieler bereits gewürfelt hat, ohne dass er ziehen konnte.
+        public int AmountOfRetries { get; set; }
         //Der Wert ist TRUE, wenn ein Spieler gewonnen hat
         public bool GameOver { get; set; }
         //enthält die ID des Siegers
@@ -50,7 +52,7 @@ namespace Ludo._20_Data
             PawnPosition[3] = new int[4] { 0, -1, -1, -1 };
             DieValue = 0;
             //Standerdeinstellung: Spieler 2-4 sind KI
-            AI = new bool[4] { false, true, true, true};
+            AI = new bool[4] { false, false, false, false};
             //StandardNamen
             PlayerNames = new string[4] { "Tom", "tOm", "toM", "TOM" };
             //Spiel ist nicht zuende

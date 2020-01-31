@@ -1,5 +1,6 @@
 ﻿using Ludo._40_Model;
 using Ludo._60_ViewModel;
+using Ludo._20_Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -230,6 +231,124 @@ namespace Ludo_TestProject
                 errorMsg += x.ToString() + ", ";
             }
             CollectionAssert.AreEqual(actual, expect, errorMsg);
+        }
+        #endregion
+
+        #region MovePawn
+        [TestMethod]
+        public void MovePawn_NoBeating_Normal()
+        {
+            //Arrange:
+            VM_MainWindow VM = new VM_MainWindow();
+            GameState GS = VM.GameState;
+
+            GS.ActivePlayer = 1;
+            int PawnID = 2;
+            GS.PawnPosition[GS.ActivePlayer][PawnID] = 43;
+            GS.PawnOptions = new int[4] { 90, 33, 45, 90 };
+
+            int expected = 45;
+
+            //Act:
+            VM.Game.PawnMovement.MovePawn(PawnID);
+
+            //Assert:
+            int actual = GS.PawnPosition[GS.ActivePlayer][PawnID];
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MovePawn_NoBeating_InGoalArea()
+        {
+            //Arrange:
+            VM_MainWindow VM = new VM_MainWindow();
+            GameState GS = VM.GameState;
+
+            GS.ActivePlayer = 3;
+            int PawnID = 2;
+            GS.PawnPosition[GS.ActivePlayer][PawnID] = 45;
+            GS.PawnOptions = new int[4] { 90, 33, 87, 90 };
+
+            int expected = 87;
+
+            //Act:
+            VM.Game.PawnMovement.MovePawn(PawnID);
+
+            //Assert:
+            int actual = GS.PawnPosition[GS.ActivePlayer][PawnID];
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void MovePawn_NoBeating_OutOfHouse()
+        {
+            //Arrange:
+            VM_MainWindow VM = new VM_MainWindow();
+            GameState GS = VM.GameState;
+
+            GS.ActivePlayer = 1;
+            int PawnID = 0;
+            GS.PawnPosition[GS.ActivePlayer][PawnID] = -1;
+            GS.PawnOptions = new int[4] { 0, 33, 45, 90 };
+
+            int expected = 0;
+
+            //Act:
+            VM.Game.PawnMovement.MovePawn(PawnID);
+
+            //Assert:
+            int actual = GS.PawnPosition[GS.ActivePlayer][PawnID];
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        public void MovePawn_Beating_1()
+        {
+            //Arrange:
+            VM_MainWindow VM = new VM_MainWindow();
+            GameState GS = VM.GameState;
+
+            GS.ActivePlayer = 0;
+            int PawnID = 0;
+            int otherPlayer = 1;
+            int otherPawnID = 3;
+            GS.PawnPosition[GS.ActivePlayer][PawnID] = 8;
+            GS.PawnOptions = new int[4] { 13, 33, 45, 90 };
+            GS.PawnPosition[otherPlayer][otherPawnID] = 1;
+            int expected = -1;
+
+            //Act:
+            VM.Game.PawnMovement.MovePawn(PawnID);
+
+            //Assert:
+            int actual = GS.PawnPosition[otherPlayer][otherPawnID];
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        public void MovePawn_Beating_beimRauskommen()
+        {
+            //Arrange:
+            VM_MainWindow VM = new VM_MainWindow();
+            GameState GS = VM.GameState;
+
+            GS.ActivePlayer = 1;
+            int PawnID = 0;
+            int otherPlayer = 0;
+            int otherPawnID = 0;
+            GS.PawnPosition[GS.ActivePlayer][PawnID] = -1;
+            GS.PawnOptions = new int[4] { 0, 33, 45, 90 };
+            GS.PawnPosition[otherPlayer][otherPawnID] = 12;
+            int expected = -1;
+
+            //Act:
+            VM.Game.PawnMovement.MovePawn(PawnID);
+
+            //Assert:
+            int actual = GS.PawnPosition[otherPlayer][otherPawnID];
+            Assert.AreEqual(expected, actual);
         }
         #endregion
 

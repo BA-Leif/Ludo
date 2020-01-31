@@ -108,7 +108,7 @@ namespace Ludo._40_Model
             {
                 for (int otherPlayer = 0; otherPlayer < 4; otherPlayer++)
                 {
-                    int targetSpot_FromOtherPlayersView = (targetSpot - (12 * GS.ActivePlayer) + (12 * otherPlayer)) % 48;
+                    int targetSpot_FromOtherPlayersView = (targetSpot + (48 + (12 * GS.ActivePlayer)) + (48 - (12 * otherPlayer))) % 48;
                     for (int otherPawnID = 0; otherPawnID < 4; otherPawnID++)
                     {
                         int otherSpot = GS.PawnPosition[otherPlayer][otherPawnID];

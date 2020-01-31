@@ -139,6 +139,8 @@ namespace Ludo._60_ViewModel
             Cmd_TestClick = new RelayCommand(TestClick);
             Cmd_DiePhase = new RelayCommand(DiePhase_Start);
             Cmd_MovePhase = new RelayCommand(MovePhase_Start);
+
+            RefreshView_MovePhase();
         }
         #endregion
 
@@ -246,11 +248,13 @@ namespace Ludo._60_ViewModel
                 {
                     Pawn_Active[(player * 4) + pawnID] = "black";
                 }
+                GameState.PawnOptions[pawnID] = 90;
             }
             //Informieren der View, dass eine Änderung erfolgt ist.
             OnNotifyPropertyChanged("Text_Die");
             OnNotifyPropertyChanged("Pawn_PositionX");
             OnNotifyPropertyChanged("Pawn_PositionY");
+            OnNotifyPropertyChanged("Pawn_Active");
         }
         #endregion
 
