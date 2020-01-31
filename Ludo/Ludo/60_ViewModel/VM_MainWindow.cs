@@ -50,12 +50,14 @@ namespace Ludo._60_ViewModel
         public ICommand Cmd_TestClick { get; set; }
         public ICommand Cmd_DiePhase { get; set; }
         public ICommand Cmd_MovePhase { get; set; }
+        public ICommand Cmd_NewGame { get; set; }
+        public bool CanEnable_NewGame { get; set; }
 
         //FieldButtons
         //  Die Arrays haben eine Länge von 90 (siehe BoardView) 
-            //x- bzw. Y-Position des Feldes im Gitter der View
-        public int[] Field_GridX { get; set; }
-        public int[] Field_GridY { get; set; }
+        //x- bzw. Y-Position des Feldes im Gitter der View
+        public int[] Field_GridX { get; }
+        public int[] Field_GridY { get; }
             //Farbe jedes einzelnen Feldes
         public string[] Field_Color { get; set; }
 
@@ -104,7 +106,7 @@ namespace Ludo._60_ViewModel
             for (int i = 0; i < 90; i++)
             {
                 BoardView.Add(new int[2] { 9, 9 });
-                Field_Color[i] = "lightgray";
+                Field_Color[i] = "beige";
             }
 
             //Pöppel an ihre Startpositionen setzen
@@ -123,8 +125,8 @@ namespace Ludo._60_ViewModel
             
 
             //Farben bestimmen
-            Color_Background = "gray";
-            Color_EmptyField = "lightgray";
+            Color_Background = "lightgray";
+            Color_EmptyField = "Beige";
             Color_P1 = "red";
             Color_P2 = "blue";
             Color_P3 = "yellow";
@@ -137,8 +139,10 @@ namespace Ludo._60_ViewModel
 
             //Commands
             Cmd_TestClick = new RelayCommand(TestClick);
-            Cmd_DiePhase = new RelayCommand(DiePhase_Start);
+            Cmd_DiePhase = new RelayCommand(DiePhase_Start, parameter => GameState.InDiePhase);
             Cmd_MovePhase = new RelayCommand(MovePhase_Start);
+            CanEnable_NewGame = true;
+            Cmd_NewGame = new RelayCommand(NewGame, parameter => CanEnable_NewGame);
 
             RefreshView_MovePhase();
         }
@@ -210,12 +214,13 @@ namespace Ludo._60_ViewModel
                 if (GameState.PawnOptions[i] != 90)
                 {
                     Pawn_Active[(GameState.ActivePlayer * 4) + i] = "orange";
-                }  
+                }
             }
-    //
-    //Hover soll anzeigen, wo der Pöppel hingeht
-    //
+            //
+            //Hover soll anzeigen, wo der Pöppel hingeht
+            //
             //Informieren der View, dass eine Änderung erfolgt ist.
+            SetInformation();
             OnNotifyPropertyChanged("Pawn_Active");
             OnNotifyPropertyChanged("Text_Die");
         }
@@ -241,6 +246,7 @@ namespace Ludo._60_ViewModel
                     Pawn_PositionY[(player * 4) + pawnID] = Field_GridY[i];
                 }
             }
+            SetInformation();
             //visuelle deaktivierung aller Pöppel
             for (int pawnID = 0; pawnID < 4; pawnID++)
             {
@@ -251,6 +257,7 @@ namespace Ludo._60_ViewModel
                 GameState.PawnOptions[pawnID] = 90;
             }
             //Informieren der View, dass eine Änderung erfolgt ist.
+            
             OnNotifyPropertyChanged("Text_Die");
             OnNotifyPropertyChanged("Pawn_PositionX");
             OnNotifyPropertyChanged("Pawn_PositionY");
@@ -284,6 +291,14 @@ namespace Ludo._60_ViewModel
             int playerID = Int32.Parse(Pawn_Information.Substring(0, 1));
             int pawnID = Int32.Parse(Pawn_Information.Substring(1, 1));
             Game.MovePhase(playerID, pawnID);
+
+        }
+
+
+        public void NewGame(object obj)
+        {
+            NewGameWindow newGame = new NewGameWindow(this);
+            newGame.Show();
 
         }
 
@@ -323,6 +338,23 @@ namespace Ludo._60_ViewModel
             return color;
         }
 
+
+        public void SetInformation()
+        {
+            string newInformation = "";
+            int activePlayer = GameState.ActivePlayer + 1;
+            newInformation += "Spieler " + activePlayer.ToString() + " ist am Zug.\r\n";
+            if (GameState.DieValue == 6 && !GameState.InDiePhase)
+            {
+                newInformation += "Glückwunsch. Durch die 6 hast du gleich einen weiteren Zug.\r\n";
+            }
+            if (GameState.PawnOptions.Min() == 90 && GameState.InDiePhase)
+            {
+                newInformation += "Du konntest leider keinen Zug ausführen. Du hast noch " + (3 - GameState.AmountOfRetries).ToString() + " weitere Versuche.\r\n";
+            }
+            Text_Information = newInformation;
+            OnNotifyPropertyChanged("Text_Information");
+        }
 
         #endregion
 

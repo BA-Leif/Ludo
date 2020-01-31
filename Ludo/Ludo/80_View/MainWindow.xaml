@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ludo._80_View"
         xmlns:vm="clr-namespace:Ludo._60_ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="700"
+        Title="Mädn" Height="700" Width="700"
         Background="{Binding Color_Background}">
     <Window.DataContext>
         <vm:VM_MainWindow/>
@@ -65,9 +65,31 @@
             </Grid.ColumnDefinitions>
 
             <!--Test-->
-            <Button x:Name="Test" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Content="Test"
+            <Button x:Name="Test" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Content="Test"
                 Command="{Binding Cmd_TestClick}" CommandParameter="4"
                 />
+            
+            <!--Verschiedenes-->
+            <TextBox Grid.Row="1" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="11" 
+                     TextAlignment="Center" FontWeight="Bold"  BorderThickness="0"
+                     Background="{Binding Color_Background}" Text="{Binding Text_Information}"/>
+            <Button Grid.Row="3" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="3" Margin="10px"
+                    Content="Neues Spiel"
+                    Command="{Binding Cmd_NewGame}"/>
+
+            <!--Spielernamen-->
+            <TextBox Grid.Row="14" Grid.Column="6" Grid.ColumnSpan="2"
+                     TextAlignment="Center" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0"
+                     Text="{Binding GameState.PlayerNames[0]}" Background="{Binding Color_Background}"/>
+            <TextBox Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"
+                     TextAlignment="Center" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0"
+                     Text="{Binding GameState.PlayerNames[1]}" Background="{Binding Color_Background}"/>
+            <TextBox Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="2"
+                     TextAlignment="Center" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0"
+                     Text="{Binding GameState.PlayerNames[2]}" Background="{Binding Color_Background}"/>
+            <TextBox Grid.Row="14" Grid.Column="14" Grid.ColumnSpan="2"
+                     TextAlignment="Center" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0"
+                     Text="{Binding GameState.PlayerNames[3]}" Background="{Binding Color_Background}"/>
 
             <!--Board_Startareas-->
             <Rectangle Grid.Row ="{Binding Field_GridY[50]}" Grid.Column="{Binding Field_GridX[50]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
@@ -115,7 +137,7 @@
             <!--Board_Die-->
             <Button x:Name="Die" Grid.Row="9" Grid.Column="8" Grid.RowSpan="3" Grid.ColumnSpan="3" 
                 Margin="15px" FontSize="60"
-                Content="{Binding Text_Die}" Command="{Binding Cmd_DiePhase}" />
+                Content="{Binding Text_Die}" Command="{Binding Cmd_DiePhase}"/>
 
 
             <!--Board_Main-->

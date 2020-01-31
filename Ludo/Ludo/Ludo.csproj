@@ -55,19 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="10_SupportClass\ConverterColor.cs" />
     <Compile Include="10_SupportClass\RelayCommand.cs" />
     <Compile Include="20_Data\GameState.cs" />
     <Compile Include="40_Model\Game_Main.cs" />
     <Compile Include="40_Model\Pawn_Movement.cs" />
     <Compile Include="60_ViewModel\VM_MainWindow.cs" />
+    <Compile Include="60_ViewModel\VM_NewGame.cs" />
     <Compile Include="80_View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="80_View\NewGameWindow.xaml.cs">
+      <DependentUpon>NewGameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="80_View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="80_View\NewGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
