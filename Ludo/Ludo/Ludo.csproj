@@ -55,8 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="10_SupportClass\ConverterColor.cs" />
-    <Compile Include="10_SupportClass\Convertrer_ColorArray.cs" />
+    <Compile Include="70_Converter\Converter_Color.cs" />
+    <Compile Include="70_Converter\Converter_ColourNew.cs" />
+    <Compile Include="70_Converter\Convertrer_ColorArray.cs" />
     <Compile Include="10_SupportClass\RelayCommand.cs" />
     <Compile Include="20_Data\GameState.cs" />
     <Compile Include="40_Model\Game_Main.cs" />

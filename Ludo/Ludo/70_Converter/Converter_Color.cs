@@ -6,10 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Ludo._10_SupportClass
+namespace Ludo._70_Converter
 {
-    class ConverterColor : IValueConverter
+    public class Converter_Color : IValueConverter
     {
+        public Converter_Color()
+        {
+
+        }
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // VM -> View

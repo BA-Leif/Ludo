@@ -1,7 +1,3 @@
-C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.csprojAssemblyReference.cache
-C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.csproj.CoreCompileInputs.cache
-C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.AssemblyInfoInputs.cache
-C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.AssemblyInfo.cs
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -13,6 +9,10 @@ C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Ludo_TestProj
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Ludo.exe
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Ludo.pdb
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\bin\Debug\netcoreapp2.1\Ludo.exe.config
+C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.csprojAssemblyReference.cache
+C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.csproj.CoreCompileInputs.cache
+C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.AssemblyInfoInputs.cache
+C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.AssemblyInfo.cs
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.csproj.CopyComplete
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.dll
 C:\TestProjekte\Ludo\Ludo\Ludo_TestProject\obj\Debug\netcoreapp2.1\Ludo_TestProject.pdb

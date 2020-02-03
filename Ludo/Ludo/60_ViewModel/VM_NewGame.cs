@@ -16,7 +16,21 @@ namespace Ludo._60_ViewModel
         //Spieleroptionen
         public string[] PlayerNames { get; set; }
         public string[] PlayerColors { get; set; }
-        public int[][] PlayerColorArray { get; set; }
+
+        private int[] player1Color = new int[] { 100, 100, 100 };
+        public int[] Player1Color
+        {
+            get { return player1Color; }
+            set
+            {
+                player1Color = value;
+                OnNotifyPropertyChanged("Player1Color");
+            }
+        }
+        //public int[] Player1Color { get; set; }
+        public int[] Player2Color { get; set; }
+        public int[] Player3Color { get; set; }
+        public int[] Player4Color { get; set; }
         public bool[] PlayerAI { get; set; }
 
         //Commands
@@ -32,11 +46,10 @@ namespace Ludo._60_ViewModel
             PlayerColors[1] = "0,0,200";
             PlayerColors[2] = "100,100,0";
             PlayerColors[3] = "0,200,0";
-            PlayerColorArray = new int[4][];
-            PlayerColorArray[0] = new int[3] { 150,0,200};
-            PlayerColorArray[1] = new int[3] { 0,0,200};
-            PlayerColorArray[2] = new int[3] { 100,100,0};
-            PlayerColorArray[3] = new int[3] { 0,200,0};
+            Player1Color = new int[3] { 150,0,200};
+            Player2Color = new int[3] { 0,0,200};
+            Player3Color = new int[3] { 100,100,0};
+            Player4Color = new int[3] { 0,200,0};
             PlayerAI = new bool[4] { false, true, true, true };
 
             Cmd_RefreshView = new RelayCommand(RefreshView);
@@ -58,9 +71,10 @@ namespace Ludo._60_ViewModel
         #region Commands
         public void RefreshView(object obj)
         {
-            OnNotifyPropertyChanged("PlayerColors");
+            OnNotifyPropertyChanged("Player1Color");
             OnNotifyPropertyChanged("PlayerNames");
-            OnNotifyPropertyChanged("PlayerAI");  
+            OnNotifyPropertyChanged("PlayerAI");
+
         }
 
         public void NewGame(object obj)
