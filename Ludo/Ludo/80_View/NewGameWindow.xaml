@@ -38,6 +38,9 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <!--Überschriften-->
+        <TextBox Grid.Row="1" Grid.Column="2"
+                  FontSize="20" TextAlignment="Center" BorderThickness="0px" IsReadOnly="True"
+                 Text="Lieblingstier?"/>
         <TextBox Grid.Row="1" Grid.Column="3"
                   FontSize="20" TextAlignment="Center" BorderThickness="0px" IsReadOnly="True"
                  Text="Lieblingsfarbe"/>
@@ -46,15 +49,16 @@
                  Text="KI? Ja? Nein?"/>
         
         <!--Spieler 1-->
-        <TextBox Grid.Row="2" Grid.Column="1" 
-                 VerticalAlignment="Center" HorizontalAlignment="Center"
+        <Rectangle Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Margin="5px"
+                   Fill="{Binding Settings.Player1Color, Converter={StaticResource conv_ColourNew}, Mode=TwoWay}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Background="{Binding Settings.Player1Color, Converter={StaticResource conv_ColourNew}}" 
+                 VerticalAlignment="Center" HorizontalAlignment="Right"
                  Text="Spieler 1:" IsReadOnly="True" BorderThickness="0px" FontSize="20"/>
         <TextBox Grid.Row="2" Grid.Column="2" Background="AliceBlue" Margin="10px" Text="{Binding Settings.PlayerNames[0], Mode=TwoWay}" FontSize="20" VerticalAlignment="Center">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
             </TextBox.InputBindings>
         </TextBox>
-        <Rectangle Grid.Row="2" Grid.Column="3" Fill="{Binding Settings.Player1Color, Converter={StaticResource conv_ColourNew}, Mode=TwoWay}"/>
         <Grid Grid.Row="2" Grid.Column="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
@@ -64,10 +68,10 @@
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0" IsReadOnly="True"
                  Text="{Binding Settings.Player1Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged ,Converter={StaticResource conv_ColourNew}}" TextAlignment="Center" VerticalContentAlignment="Center">
-            <TextBox.InputBindings>
-                <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
-            </TextBox.InputBindings>
-        </TextBox>
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+                </TextBox.InputBindings>
+            </TextBox>
             <Slider Grid.Row="1" Maximum="254" Minimum="0" Value="{Binding Settings.Player1Color[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="ValueChanged">
@@ -90,10 +94,162 @@
                 </i:Interaction.Triggers>
             </Slider>
         </Grid>
-
         <CheckBox Grid.Row="2" Grid.Column="4"
                   VerticalAlignment="Center" HorizontalAlignment="Center"
                   Content="KI?" IsChecked="{Binding Settings.PlayerAI[0], Mode=TwoWay}"/>
+
+        <!--Spieler 2-->
+        <Rectangle Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Margin="5px"
+                   Fill="{Binding Settings.Player2Color, Converter={StaticResource conv_ColourNew}, Mode=TwoWay}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                 Text="Spieler 2:" IsReadOnly="True" BorderThickness="0px" FontSize="20"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Background="AliceBlue" Margin="10px" Text="{Binding Settings.PlayerNames[1], Mode=TwoWay}" FontSize="20" VerticalAlignment="Center">
+            <TextBox.InputBindings>
+                <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+            </TextBox.InputBindings>
+        </TextBox>
+        <Grid Grid.Row="3" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" IsReadOnly="True"
+                 Text="{Binding Settings.Player2Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged ,Converter={StaticResource conv_ColourNew}}" TextAlignment="Center" VerticalContentAlignment="Center">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+                </TextBox.InputBindings>
+            </TextBox>
+            <Slider Grid.Row="1" Maximum="254" Minimum="0" Value="{Binding Settings.Player2Color[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+            <Slider Grid.Row="2" Maximum="254" Minimum="0" Value="{Binding Settings.Player2Color[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+            <Slider Grid.Row="3" Maximum="254" Minimum="0" Value="{Binding Settings.Player2Color[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+        </Grid>
+        <CheckBox Grid.Row="3" Grid.Column="4"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Content="KI?" IsChecked="{Binding Settings.PlayerAI[1], Mode=TwoWay}"/>
+
+        <!--Spieler 3-->
+        <Rectangle Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5px"
+                   Fill="{Binding Settings.Player3Color, Converter={StaticResource conv_ColourNew}, Mode=TwoWay}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                 Text="Spieler 3:" IsReadOnly="True" BorderThickness="0px" FontSize="20"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Background="AliceBlue" Margin="10px" Text="{Binding Settings.PlayerNames[2], Mode=TwoWay}" FontSize="20" VerticalAlignment="Center">
+            <TextBox.InputBindings>
+                <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+            </TextBox.InputBindings>
+        </TextBox>
+        <Grid Grid.Row="4" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" IsReadOnly="True"
+                 Text="{Binding Settings.Player3Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged ,Converter={StaticResource conv_ColourNew}}" TextAlignment="Center" VerticalContentAlignment="Center">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+                </TextBox.InputBindings>
+            </TextBox>
+            <Slider Grid.Row="1" Maximum="254" Minimum="0" Value="{Binding Settings.Player3Color[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+            <Slider Grid.Row="2" Maximum="254" Minimum="0" Value="{Binding Settings.Player3Color[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+            <Slider Grid.Row="3" Maximum="254" Minimum="0" Value="{Binding Settings.Player3Color[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+        </Grid>
+        <CheckBox Grid.Row="4" Grid.Column="4"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Content="KI?" IsChecked="{Binding Settings.PlayerAI[2], Mode=TwoWay}"/>
+
+        <!--Spieler 4-->
+        <Rectangle Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Margin="5px"
+                   Fill="{Binding Settings.Player4Color, Converter={StaticResource conv_ColourNew}, Mode=TwoWay}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                 Text="Spieler 4:" IsReadOnly="True" BorderThickness="0px" FontSize="20"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Background="AliceBlue" Margin="10px" Text="{Binding Settings.PlayerNames[3], Mode=TwoWay}" FontSize="20" VerticalAlignment="Center">
+            <TextBox.InputBindings>
+                <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+            </TextBox.InputBindings>
+        </TextBox>
+        <Grid Grid.Row="5" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" IsReadOnly="True"
+                 Text="{Binding Settings.Player4Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged ,Converter={StaticResource conv_ColourNew}}" TextAlignment="Center" VerticalContentAlignment="Center">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding Cmd_RefreshView}" Key="Return"/>
+                </TextBox.InputBindings>
+            </TextBox>
+            <Slider Grid.Row="1" Maximum="254" Minimum="0" Value="{Binding Settings.Player4Color[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+            <Slider Grid.Row="2" Maximum="254" Minimum="0" Value="{Binding Settings.Player4Color[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+            <Slider Grid.Row="3" Maximum="254" Minimum="0" Value="{Binding Settings.Player4Color[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ValueChanged">
+                        <i:InvokeCommandAction Command="{Binding Cmd_RefreshView}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Slider>
+        </Grid>
+        <CheckBox Grid.Row="5" Grid.Column="4"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Content="KI?" IsChecked="{Binding Settings.PlayerAI[3], Mode=TwoWay}"/>
+        
+        
+        
 
 
 
