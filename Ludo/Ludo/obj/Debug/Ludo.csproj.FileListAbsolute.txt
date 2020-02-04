@@ -20,3 +20,4 @@ C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\System.Windows.Interactivity.dll
 C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\Microsoft.Expression.Interactions.xml
 C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\System.Windows.Interactivity.xml
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.CopyComplete
+C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csprojAssemblyReference.cache
