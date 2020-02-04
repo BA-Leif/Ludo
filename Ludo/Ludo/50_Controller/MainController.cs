@@ -7,6 +7,7 @@ using Ludo._80_View;
 using Ludo._60_ViewModel;
 using Ludo._20_Data;
 
+
 namespace Ludo._50_Controller
 {
     public class MainController
@@ -43,8 +44,25 @@ namespace Ludo._50_Controller
             NewGameWindow.DataContext = VM_NewGame;
             NewGameWindow.Show();
         }
+        #endregion
 
-       
+        #region Spielrelevantes
+        public void StartNewGame()
+        {
+            MainWindow.Close();
+            
+            MainWindow = new MainWindow();
+            this.GS = new GameState();
+            GS.PlayerNames = NewGameOptions.PlayerNames;
+            GS.AI = NewGameOptions.PlayerAI;
+            VM_MainWindow = new VM_MainWindow(GS, this);
+   //FARBEN
+   //VM_MainWindow.Color_Player = NewGameOptions.PlayerColors
+            MainWindow.DataContext = VM_MainWindow;
+            MainWindow.Show();
+            NewGameWindow.Close();
+        }
+
         #endregion
     }
 }

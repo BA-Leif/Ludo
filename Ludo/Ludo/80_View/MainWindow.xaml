@@ -65,9 +65,9 @@
             </Grid.ColumnDefinitions>
 
             <!--Test-->
-            <Button x:Name="Test" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Content="Test"
+            <!--<Button x:Name="Test" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Content="Test"
                 Command="{Binding Cmd_TestClick}" CommandParameter="4"
-                />
+                />-->
             
             <!--Verschiedenes-->
             <TextBox Grid.Row="1" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="11" 
@@ -92,47 +92,47 @@
                      Text="{Binding GameState.PlayerNames[3]}" Background="{Binding Color_Background}"/>
 
             <!--Board_Startareas-->
-            <Rectangle Grid.Row ="{Binding Field_GridY[50]}" Grid.Column="{Binding Field_GridX[50]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[51]}" Grid.Column="{Binding Field_GridX[51]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[52]}" Grid.Column="{Binding Field_GridX[52]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[53]}" Grid.Column="{Binding Field_GridX[53]}" Width="30" Height="30" Fill="{Binding Color_P1}"/>
-
-            <Rectangle Grid.Row ="{Binding Field_GridY[60]}" Grid.Column="{Binding Field_GridX[60]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[61]}" Grid.Column="{Binding Field_GridX[61]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[62]}" Grid.Column="{Binding Field_GridX[62]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[63]}" Grid.Column="{Binding Field_GridX[63]}" Width="30" Height="30" Fill="{Binding Color_P2}"/>
-
-            <Rectangle Grid.Row ="{Binding Field_GridY[70]}" Grid.Column="{Binding Field_GridX[70]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[71]}" Grid.Column="{Binding Field_GridX[71]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[72]}" Grid.Column="{Binding Field_GridX[72]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[73]}" Grid.Column="{Binding Field_GridX[73]}" Width="30" Height="30" Fill="{Binding Color_P3}"/>
-
-            <Rectangle Grid.Row ="{Binding Field_GridY[80]}" Grid.Column="{Binding Field_GridX[80]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[81]}" Grid.Column="{Binding Field_GridX[81]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[82]}" Grid.Column="{Binding Field_GridX[82]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[83]}" Grid.Column="{Binding Field_GridX[83]}" Width="30" Height="30" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[50]}" Grid.Column="{Binding Field_GridX[50]}" Width="30" Height="30" Fill="{Binding Color_Player[0]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[51]}" Grid.Column="{Binding Field_GridX[51]}" Width="30" Height="30" Fill="{Binding Color_Player[0]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[52]}" Grid.Column="{Binding Field_GridX[52]}" Width="30" Height="30" Fill="{Binding Color_Player[0]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[53]}" Grid.Column="{Binding Field_GridX[53]}" Width="30" Height="30" Fill="{Binding Color_Player[0]}"/>
+                                                                                                                                               
+            <Rectangle Grid.Row ="{Binding Field_GridY[60]}" Grid.Column="{Binding Field_GridX[60]}" Width="30" Height="30" Fill="{Binding Color_Player[1]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[61]}" Grid.Column="{Binding Field_GridX[61]}" Width="30" Height="30" Fill="{Binding Color_Player[1]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[62]}" Grid.Column="{Binding Field_GridX[62]}" Width="30" Height="30" Fill="{Binding Color_Player[1]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[63]}" Grid.Column="{Binding Field_GridX[63]}" Width="30" Height="30" Fill="{Binding Color_Player[1]}"/>
+                                                                                                                                            
+            <Rectangle Grid.Row ="{Binding Field_GridY[70]}" Grid.Column="{Binding Field_GridX[70]}" Width="30" Height="30" Fill="{Binding Color_Player[2]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[71]}" Grid.Column="{Binding Field_GridX[71]}" Width="30" Height="30" Fill="{Binding Color_Player[2]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[72]}" Grid.Column="{Binding Field_GridX[72]}" Width="30" Height="30" Fill="{Binding Color_Player[2]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[73]}" Grid.Column="{Binding Field_GridX[73]}" Width="30" Height="30" Fill="{Binding Color_Player[2]}"/>
+                                                                                                                                                
+            <Rectangle Grid.Row ="{Binding Field_GridY[80]}" Grid.Column="{Binding Field_GridX[80]}" Width="30" Height="30" Fill="{Binding Color_Player[3]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[81]}" Grid.Column="{Binding Field_GridX[81]}" Width="30" Height="30" Fill="{Binding Color_Player[3]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[82]}" Grid.Column="{Binding Field_GridX[82]}" Width="30" Height="30" Fill="{Binding Color_Player[3]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[83]}" Grid.Column="{Binding Field_GridX[83]}" Width="30" Height="30" Fill="{Binding Color_Player[3]}"/>
 
 
             <!--Board_Goal-->
-            <Rectangle Grid.Row ="{Binding Field_GridY[55]}" Grid.Column="{Binding Field_GridX[55]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[56]}" Grid.Column="{Binding Field_GridX[56]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[57]}" Grid.Column="{Binding Field_GridX[57]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[58]}" Grid.Column="{Binding Field_GridX[58]}" Width="10" Height="10" Fill="{Binding Color_P1}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[55]}" Grid.Column="{Binding Field_GridX[55]}" Width="10" Height="10" Fill="{Binding Color_Player[0]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[56]}" Grid.Column="{Binding Field_GridX[56]}" Width="10" Height="10" Fill="{Binding Color_Player[0]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[57]}" Grid.Column="{Binding Field_GridX[57]}" Width="10" Height="10" Fill="{Binding Color_Player[0]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[58]}" Grid.Column="{Binding Field_GridX[58]}" Width="10" Height="10" Fill="{Binding Color_Player[0]}"/>
                                                                                                                       
-            <Rectangle Grid.Row ="{Binding Field_GridY[65]}" Grid.Column="{Binding Field_GridX[65]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[66]}" Grid.Column="{Binding Field_GridX[66]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[67]}" Grid.Column="{Binding Field_GridX[67]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[68]}" Grid.Column="{Binding Field_GridX[68]}" Width="10" Height="10" Fill="{Binding Color_P2}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[65]}" Grid.Column="{Binding Field_GridX[65]}" Width="10" Height="10" Fill="{Binding Color_Player[1]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[66]}" Grid.Column="{Binding Field_GridX[66]}" Width="10" Height="10" Fill="{Binding Color_Player[1]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[67]}" Grid.Column="{Binding Field_GridX[67]}" Width="10" Height="10" Fill="{Binding Color_Player[1]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[68]}" Grid.Column="{Binding Field_GridX[68]}" Width="10" Height="10" Fill="{Binding Color_Player[1]}"/>
                                                                                                                       
-            <Rectangle Grid.Row ="{Binding Field_GridY[75]}" Grid.Column="{Binding Field_GridX[75]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[76]}" Grid.Column="{Binding Field_GridX[76]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[77]}" Grid.Column="{Binding Field_GridX[77]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[78]}" Grid.Column="{Binding Field_GridX[78]}" Width="10" Height="10" Fill="{Binding Color_P3}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[75]}" Grid.Column="{Binding Field_GridX[75]}" Width="10" Height="10" Fill="{Binding Color_Player[2]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[76]}" Grid.Column="{Binding Field_GridX[76]}" Width="10" Height="10" Fill="{Binding Color_Player[2]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[77]}" Grid.Column="{Binding Field_GridX[77]}" Width="10" Height="10" Fill="{Binding Color_Player[2]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[78]}" Grid.Column="{Binding Field_GridX[78]}" Width="10" Height="10" Fill="{Binding Color_Player[2]}"/>
                                                                                                                    
-            <Rectangle Grid.Row ="{Binding Field_GridY[85]}" Grid.Column="{Binding Field_GridX[85]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[86]}" Grid.Column="{Binding Field_GridX[86]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[87]}" Grid.Column="{Binding Field_GridX[87]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
-            <Rectangle Grid.Row ="{Binding Field_GridY[88]}" Grid.Column="{Binding Field_GridX[88]}" Width="10" Height="10" Fill="{Binding Color_P4}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[85]}" Grid.Column="{Binding Field_GridX[85]}" Width="10" Height="10" Fill="{Binding Color_Player[3]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[86]}" Grid.Column="{Binding Field_GridX[86]}" Width="10" Height="10" Fill="{Binding Color_Player[3]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[87]}" Grid.Column="{Binding Field_GridX[87]}" Width="10" Height="10" Fill="{Binding Color_Player[3]}"/>
+            <Rectangle Grid.Row ="{Binding Field_GridY[88]}" Grid.Column="{Binding Field_GridX[88]}" Width="10" Height="10" Fill="{Binding Color_Player[3]}"/>
 
             <!--Board_Die-->
             <Button x:Name="Die" Grid.Row="9" Grid.Column="8" Grid.RowSpan="3" Grid.ColumnSpan="3" 
@@ -195,25 +195,25 @@
             <Rectangle Grid.Row ="{Binding Field_GridY[47]}" Grid.Column="{Binding Field_GridX[47]}" Width="30" Height="30" Fill="{Binding Field_Color[47]}"/>
             
             <!--Pawns-->
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 0]}" Grid.Column="{Binding Pawn_PositionX[ 0]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 0]}" Command="{Binding Cmd_MovePhase}" CommandParameter="00"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 1]}" Grid.Column="{Binding Pawn_PositionX[ 1]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 1]}" Command="{Binding Cmd_MovePhase}" CommandParameter="01"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 2]}" Grid.Column="{Binding Pawn_PositionX[ 2]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 2]}" Command="{Binding Cmd_MovePhase}" CommandParameter="02"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 3]}" Grid.Column="{Binding Pawn_PositionX[ 3]}" Background="{Binding Color_P1}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 3]}" Command="{Binding Cmd_MovePhase}" CommandParameter="03"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 0]}" Grid.Column="{Binding Pawn_PositionX[ 0]}" Background="{Binding Color_Player[0]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 0]}" Command="{Binding Cmd_MovePhase}" CommandParameter="00"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 1]}" Grid.Column="{Binding Pawn_PositionX[ 1]}" Background="{Binding Color_Player[0]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 1]}" Command="{Binding Cmd_MovePhase}" CommandParameter="01"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 2]}" Grid.Column="{Binding Pawn_PositionX[ 2]}" Background="{Binding Color_Player[0]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 2]}" Command="{Binding Cmd_MovePhase}" CommandParameter="02"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 3]}" Grid.Column="{Binding Pawn_PositionX[ 3]}" Background="{Binding Color_Player[0]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 3]}" Command="{Binding Cmd_MovePhase}" CommandParameter="03"/>
+                                                                                                                                                                                                                 
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 4]}" Grid.Column="{Binding Pawn_PositionX[ 4]}" Background="{Binding Color_Player[1]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 4]}" Command="{Binding Cmd_MovePhase}" CommandParameter="10"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 5]}" Grid.Column="{Binding Pawn_PositionX[ 5]}" Background="{Binding Color_Player[1]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 5]}" Command="{Binding Cmd_MovePhase}" CommandParameter="11"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 6]}" Grid.Column="{Binding Pawn_PositionX[ 6]}" Background="{Binding Color_Player[1]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 6]}" Command="{Binding Cmd_MovePhase}" CommandParameter="12"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 7]}" Grid.Column="{Binding Pawn_PositionX[ 7]}" Background="{Binding Color_Player[1]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 7]}" Command="{Binding Cmd_MovePhase}" CommandParameter="13"/>
+                                                                                                                                                                                                                 
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 8]}" Grid.Column="{Binding Pawn_PositionX[ 8]}" Background="{Binding Color_Player[2]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 8]}" Command="{Binding Cmd_MovePhase}" CommandParameter="20"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 9]}" Grid.Column="{Binding Pawn_PositionX[ 9]}" Background="{Binding Color_Player[2]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 9]}" Command="{Binding Cmd_MovePhase}" CommandParameter="21"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[10]}" Grid.Column="{Binding Pawn_PositionX[10]}" Background="{Binding Color_Player[2]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[10]}" Command="{Binding Cmd_MovePhase}" CommandParameter="22"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[11]}" Grid.Column="{Binding Pawn_PositionX[11]}" Background="{Binding Color_Player[2]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[11]}" Command="{Binding Cmd_MovePhase}" CommandParameter="23"/> 
                                                                                                                                                                                                                   
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 4]}" Grid.Column="{Binding Pawn_PositionX[ 4]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 4]}" Command="{Binding Cmd_MovePhase}" CommandParameter="10"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 5]}" Grid.Column="{Binding Pawn_PositionX[ 5]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 5]}" Command="{Binding Cmd_MovePhase}" CommandParameter="11"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 6]}" Grid.Column="{Binding Pawn_PositionX[ 6]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 6]}" Command="{Binding Cmd_MovePhase}" CommandParameter="12"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 7]}" Grid.Column="{Binding Pawn_PositionX[ 7]}" Background="{Binding Color_P2}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 7]}" Command="{Binding Cmd_MovePhase}" CommandParameter="13"/>
-                                                                                                                                                                                                                  
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 8]}" Grid.Column="{Binding Pawn_PositionX[ 8]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 8]}" Command="{Binding Cmd_MovePhase}" CommandParameter="20"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[ 9]}" Grid.Column="{Binding Pawn_PositionX[ 9]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[ 9]}" Command="{Binding Cmd_MovePhase}" CommandParameter="21"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[10]}" Grid.Column="{Binding Pawn_PositionX[10]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[10]}" Command="{Binding Cmd_MovePhase}" CommandParameter="22"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[11]}" Grid.Column="{Binding Pawn_PositionX[11]}" Background="{Binding Color_P3}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[11]}" Command="{Binding Cmd_MovePhase}" CommandParameter="23"/> 
-                                                                                                                                                                                                                   
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[12]}" Grid.Column="{Binding Pawn_PositionX[12]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[12]}" Command="{Binding Cmd_MovePhase}" CommandParameter="30"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[13]}" Grid.Column="{Binding Pawn_PositionX[13]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[13]}" Command="{Binding Cmd_MovePhase}" CommandParameter="31"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[14]}" Grid.Column="{Binding Pawn_PositionX[14]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[14]}" Command="{Binding Cmd_MovePhase}" CommandParameter="32"/>
-            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[15]}" Grid.Column="{Binding Pawn_PositionX[15]}" Background="{Binding Color_P4}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[15]}" Command="{Binding Cmd_MovePhase}" CommandParameter="33"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[12]}" Grid.Column="{Binding Pawn_PositionX[12]}" Background="{Binding Color_Player[3]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[12]}" Command="{Binding Cmd_MovePhase}" CommandParameter="30"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[13]}" Grid.Column="{Binding Pawn_PositionX[13]}" Background="{Binding Color_Player[3]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[13]}" Command="{Binding Cmd_MovePhase}" CommandParameter="31"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[14]}" Grid.Column="{Binding Pawn_PositionX[14]}" Background="{Binding Color_Player[3]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[14]}" Command="{Binding Cmd_MovePhase}" CommandParameter="32"/>
+            <Button  Margin="10px" Grid.Row="{Binding Pawn_PositionY[15]}" Grid.Column="{Binding Pawn_PositionX[15]}" Background="{Binding Color_Player[3]}" BorderThickness="5px" BorderBrush="{Binding Pawn_Active[15]}" Command="{Binding Cmd_MovePhase}" CommandParameter="33"/>
         </Grid>
     </Window.Content>
 </Window>

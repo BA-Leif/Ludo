@@ -56,7 +56,7 @@ namespace Ludo._60_ViewModel
 
         public void NewGame(object obj)
         {
-
+            Controller.StartNewGame();
         }
         #endregion
     }

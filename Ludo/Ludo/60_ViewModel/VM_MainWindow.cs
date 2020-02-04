@@ -39,7 +39,8 @@ namespace Ludo._60_ViewModel
         //Farben
         public string Color_Background { get; set; }
         public string Color_EmptyField { get; set; }
-        public string Color_P1 { get; set; }
+        public string[] Color_Player { get; set; }
+        //public string Color_P1 { get; set; }
         public string Color_P2 { get; set; }
         public string Color_P3 { get; set; }
         public string Color_P4 { get; set; }
@@ -130,10 +131,11 @@ namespace Ludo._60_ViewModel
             //Farben bestimmen
             Color_Background = "lightgray";
             Color_EmptyField = "Beige";
-            Color_P1 = "red";
-            Color_P2 = "blue";
-            Color_P3 = "yellow";
-            Color_P4 = "green";
+            Color_Player = new string[4];
+            Color_Player[0] = "red";
+            Color_Player[1] = "blue";
+            Color_Player[2] = "yellow";
+            Color_Player[3] = "green";
 
 
             //Texte
@@ -320,19 +322,19 @@ namespace Ludo._60_ViewModel
             switch (player)
             {
                 case 0:
-                    color = Color_P1;
+                    color = Color_Player[0];
                     break;
 
                 case 1:
-                    color = Color_P2;
+                    color = Color_Player[1];
                     break;
 
                 case 2:
-                    color = Color_P3;
+                    color = Color_Player[2];
                     break;
 
                 case 3:
-                    color = Color_P4;
+                    color = Color_Player[3];
                     break;
                 default:
                     color = "black";
