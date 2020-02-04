@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="Mädn" Height="700" Width="700"
         Background="{Binding Color_Background}">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:VM_MainWindow/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Window.Content>
         <Grid>
             <Grid.RowDefinitions>

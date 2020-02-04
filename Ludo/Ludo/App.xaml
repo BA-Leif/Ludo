@@ -1,8 +1,8 @@
 ﻿<Application x:Class="Ludo.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Ludo"
-             StartupUri="80_View/MainWindow.xaml">
+             xmlns:local="clr-namespace:Ludo">
+    <!--StartupUri="80_View/MainWindow.xaml">-->
     <Application.Resources>
          
     </Application.Resources>

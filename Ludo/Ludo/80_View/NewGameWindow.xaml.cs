@@ -21,7 +21,7 @@ namespace Ludo._80_View
     public partial class NewGameWindow : Window
     {
 
-        public NewGameWindow(VM_MainWindow vm_main)
+        public NewGameWindow()
         {
             InitializeComponent();
         }

@@ -15,3 +15,8 @@ C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.GenerateResource.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.CoreCompileInputs.cache
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.exe
 C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.pdb
+C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\System.Windows.Interactivity.dll
+C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\TestProjekte\Ludo\Ludo\Ludo\bin\Debug\System.Windows.Interactivity.xml
+C:\TestProjekte\Ludo\Ludo\Ludo\obj\Debug\Ludo.csproj.CopyComplete

@@ -9,12 +9,14 @@ using Ludo._10_SupportClass;
 using Ludo._80_View;
 using Ludo._40_Model;
 using Ludo._20_Data;
+using Ludo._50_Controller;
 
 namespace Ludo._60_ViewModel
 {
     public class VM_MainWindow : INotifyPropertyChanged
     {
         #region Eigenschaften & Konstruktor
+        public MainController Controller { get; set; }
         public MainWindow View { get; set; }
         public Game_Main Game { get; set; }
         public GameState GameState { get; set; }
@@ -72,10 +74,11 @@ namespace Ludo._60_ViewModel
         public string[] Pawn_Active { get; set; }
 
         //Konstruktor
-        public VM_MainWindow()
+        public VM_MainWindow(GameState gameState, MainController controller)
         {
             //Initialisieren von Game und GameState
-            GameState = new GameState();
+            GameState = gameState;
+            Controller = controller;
             Game = new Game_Main(this);
 
             //soll eine Konstante sein
@@ -300,8 +303,7 @@ namespace Ludo._60_ViewModel
         /// <param name="obj"></param>
         public void NewGame(object obj)
         {
-            NewGameWindow newGame = new NewGameWindow(this);
-            newGame.Show();
+            Controller.GetNewGameWindow();
         }
 
         #endregion
