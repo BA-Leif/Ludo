@@ -9,29 +9,24 @@ namespace Ludo._20_Data
     public class NewGameOptions
     {
         public string[] PlayerNames { get; set; }
-        public string[] PlayerColors
-        {
-            get {
-                
-                return PlayerColors;
-            }
-            set { }
-        }
 
-        //private int[] player1Color = new int[] { 100, 100, 100 };
-        //public int[] Player1Color
-        //{
-        //    get { return player1Color; }
-        //    set
-        //    {
-        //        player1Color = value;
-        //        OnNotifyPropertyChanged("Player1Color");
-        //    }
-        //}
         public int[] Player1Color { get; set; }
         public int[] Player2Color { get; set; }
         public int[] Player3Color { get; set; }
         public int[] Player4Color { get; set; }
+        public int[][] PlayerColors
+        {
+            get {
+                int[][] output = new int[4][];
+                output[0] = Player1Color;
+                output[1] = Player2Color;
+                output[2] = Player3Color;
+                output[3] = Player4Color;
+                return output; }
+            set { }
+        }
+
+
         public bool[] PlayerAI { get; set; }
 
         public NewGameOptions()

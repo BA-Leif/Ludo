@@ -56,8 +56,7 @@ namespace Ludo._50_Controller
             GS.PlayerNames = NewGameOptions.PlayerNames;
             GS.AI = NewGameOptions.PlayerAI;
             VM_MainWindow = new VM_MainWindow(GS, this);
-   //FARBEN
-   //VM_MainWindow.Color_Player = NewGameOptions.PlayerColors
+            VM_MainWindow.PlayerColors = NewGameOptions.PlayerColors;
             MainWindow.DataContext = VM_MainWindow;
             MainWindow.Show();
             NewGameWindow.Close();

@@ -40,10 +40,11 @@ namespace Ludo._60_ViewModel
         public string Color_Background { get; set; }
         public string Color_EmptyField { get; set; }
         public string[] Color_Player { get; set; }
-        //public string Color_P1 { get; set; }
-        public string Color_P2 { get; set; }
-        public string Color_P3 { get; set; }
-        public string Color_P4 { get; set; }
+        public int[][] PlayerColors { get; set; }
+        public int[] Color_Player1 { get; set; }
+        public int[] Color_Player2 { get; set; }
+        public int[] Color_Player3 { get; set; }
+        public int[] Color_Player4 { get; set; }
 
         //Text
         public string Text_Die { get; set; }
@@ -136,6 +137,11 @@ namespace Ludo._60_ViewModel
             Color_Player[1] = "blue";
             Color_Player[2] = "yellow";
             Color_Player[3] = "green";
+            PlayerColors = new int[4][];
+            PlayerColors[0] = new int[3] { 200, 0, 0 };
+            PlayerColors[1] = new int[3] { 0, 0, 200 };
+            PlayerColors[2] = new int[3] { 100, 100, 0 };
+            PlayerColors[3] = new int[3] { 0, 200, 0 };
 
 
             //Texte
